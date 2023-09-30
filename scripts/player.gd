@@ -5,8 +5,11 @@ class_name Player
 
 func _physics_process(_delta):
     
+    
     # if any GUI is focused, ignore move inputs
-    if get_viewport().gui_get_focus_owner(): return
+    if get_viewport().gui_get_focus_owner():
+        $animation.play('thinking')
+        return
 
     var moveX := Input.get_axis("move_left", "move_right")
     var moveY := Input.get_axis("move_up", "move_down")
@@ -14,6 +17,10 @@ func _physics_process(_delta):
     
     if moveInput.length_squared() > 0:
         $"interaction-area".position = Vector2(0, -2.0) + moveInput * Vector2(5.0, 4.0)
+        $animation.play('walk')
+    
+    else:
+        $animation.play('idle')
     
     velocity = moveInput * walkSpeed
     move_and_slide()
