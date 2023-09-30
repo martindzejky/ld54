@@ -59,3 +59,6 @@ position = Vector2(-20, 22)
 
 [node name="customer" parent="level" instance=ExtResource("8_5dtcu")]
 position = Vector2(-4, 29)
+
+[node name="customer2" parent="level" instance=ExtResource("8_5dtcu")]
+position = Vector2(8, 23)

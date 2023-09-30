@@ -11,10 +11,12 @@ radius = 2.0
 height = 8.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jyphq"]
+resource_local_to_scene = true
 shader = ExtResource("2_2ax8m")
 shader_parameter/modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68mm8"]
+resource_local_to_scene = true
 shader = ExtResource("2_2ax8m")
 shader_parameter/modulate = Color(1, 1, 1, 1)
 
