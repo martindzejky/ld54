@@ -1,10 +1,12 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://b1emy3ccan5v"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://b1emy3ccan5v"]
 
 [ext_resource type="Texture2D" uid="uid://dyb1fleacie1d" path="res://tiles/walls.png" id="1_xau8c"]
 [ext_resource type="PackedScene" uid="uid://dcc0o6vn1bgh7" path="res://objects/door.tscn" id="2_82oyk"]
 [ext_resource type="PackedScene" uid="uid://b0yxlgnqlqfx" path="res://objects/shelf.tscn" id="2_t1jh3"]
 [ext_resource type="PackedScene" uid="uid://clj8oxsb350n4" path="res://objects/shelf-box.tscn" id="4_ptj8i"]
 [ext_resource type="PackedScene" uid="uid://drha4wr70ghbx" path="res://objects/shelf-fridge.tscn" id="5_weu1k"]
+[ext_resource type="PackedScene" uid="uid://dysdatjd2b2k1" path="res://objects/storage.tscn" id="6_wvxt0"]
+[ext_resource type="PackedScene" uid="uid://clyojb0cp6b0g" path="res://objects/basket.tscn" id="7_1qfor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w11q"]
 resource_name = "walls"
@@ -102,10 +104,12 @@ resource_name = "doors"
 scenes/1/scene = ExtResource("2_82oyk")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ctlt0"]
-resource_name = "shelves"
+resource_name = "containers"
 scenes/1/scene = ExtResource("2_t1jh3")
 scenes/2/scene = ExtResource("4_ptj8i")
 scenes/3/scene = ExtResource("5_weu1k")
+scenes/4/scene = ExtResource("6_wvxt0")
+scenes/6/scene = ExtResource("7_1qfor")
 
 [resource]
 physics_layer_0/collision_layer = 2

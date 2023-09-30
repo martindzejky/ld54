@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://luiumy05yr4e"]
+
+[ext_resource type="Script" path="res://scripts/container-ui.gd" id="1_fj1d8"]
+[ext_resource type="Texture2D" uid="uid://dv03n2ehg48tm" path="res://ui/ui.png" id="2_ukjl3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1u28"]
+load_path = "res://.godot/imported/ui.png-ef864d40b34feab5b9a4902640fca412.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iy18"]
+atlas = SubResource("CompressedTexture2D_h1u28")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsuor"]
+atlas = ExtResource("2_ukjl3")
+region = Rect2(0, 0, 16, 16)
+
+[node name="container-ui" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -270.0
+offset_right = -240.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_fj1d8")
+gridNode = NodePath("panel/margin/vbox/grid")
+
+[node name="panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -80.0
+offset_right = 40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="margin" type="MarginContainer" parent="panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vbox" type="VBoxContainer" parent="panel/margin"]
+layout_mode = 2
+
+[node name="actions" type="HBoxContainer" parent="panel/margin/vbox"]
+layout_mode = 2
+
+[node name="button-close" type="Button" parent="panel/margin/vbox/actions"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_6iy18")
+
+[node name="button-pick" type="Button" parent="panel/margin/vbox/actions"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_bsuor")
+
+[node name="grid" type="GridContainer" parent="panel/margin/vbox"]
+layout_mode = 2
+
+[connection signal="pressed" from="panel/margin/vbox/actions/button-pick" to="." method="_on_button_pick_pressed"]

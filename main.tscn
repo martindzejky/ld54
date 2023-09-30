@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b62ww8nn0ilvp"]
+[gd_scene load_steps=9 format=3 uid="uid://b62ww8nn0ilvp"]
 
 [ext_resource type="TileSet" uid="uid://b1emy3ccan5v" path="res://tiles/shop.tres" id="1_mmgkn"]
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="2_o5nxu"]
@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cdhta8gh7tbtv" path="res://objects/products/apple.tscn" id="5_vosqv"]
 [ext_resource type="PackedScene" uid="uid://oifxmjcimlra" path="res://objects/products/milkshake.tscn" id="7_bjcgk"]
 [ext_resource type="PackedScene" uid="uid://1tqqmhm4tpe5" path="res://objects/products/cola.tscn" id="8_mlmac"]
-[ext_resource type="PackedScene" uid="uid://clyojb0cp6b0g" path="res://objects/basket.tscn" id="9_4fc6k"]
 
 [node name="main" type="Node2D"]
 
 [node name="camera" type="Camera2D" parent="."]
+position = Vector2(-22, -51)
 
 [node name="level" type="Node2D" parent="." groups=["level"]]
 y_sort_enabled = true
@@ -23,7 +23,7 @@ tile_set = ExtResource("1_mmgkn")
 format = 2
 layer_0/name = "objects"
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(196609, 6, 131072, 196608, 6, 131072, 262139, 6, 65536, 262140, 6, 65536, 262141, 6, 65536, 262142, 6, 65536, 262143, 6, 65536, 131068, 6, 196608, 131069, 6, 196608, 131067, 6, 196608)
+layer_0/tile_data = PackedInt32Array(196609, 6, 131072, 196608, 6, 131072, 262139, 6, 65536, 262140, 6, 65536, 262141, 6, 65536, 262142, 6, 65536, 262143, 6, 65536, 131068, 6, 196608, 131069, 6, 196608, 131067, 6, 196608, -262145, 6, 262144, -262146, 6, 262144, -131075, 6, 393216, -131076, 6, 393216)
 layer_1/name = "walls"
 layer_1/enabled = true
 layer_1/modulate = Color(1, 1, 1, 1)
@@ -59,9 +59,3 @@ position = Vector2(19, 36)
 
 [node name="cola" parent="level" instance=ExtResource("8_mlmac")]
 position = Vector2(-20, 22)
-
-[node name="basket" parent="level" instance=ExtResource("9_4fc6k")]
-position = Vector2(-3, -8)
-
-[node name="basket2" parent="level" instance=ExtResource("9_4fc6k")]
-position = Vector2(19, -8)

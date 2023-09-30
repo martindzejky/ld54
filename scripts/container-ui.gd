@@ -16,6 +16,15 @@ func _ready():
     
     grid.columns = maxf(2, floorf(sqrt(root.capacity)))
 
+func _process(_delta):
+    
+    if not Input.is_action_just_pressed('ui_cancel'): return
+    
+    assert(rootNode, 'Missing root node!')
+    
+    var node := get_node(rootNode)
+    node.closeUI()
+
 
 func updateGridUI():
     

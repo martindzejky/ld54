@@ -48,7 +48,7 @@ func retrieveItem(index = 0) -> Node2D:
     
 func focusUI():
     openUI()
-    $"container-ui/panel/margin/vbox/actions/button-pick".call_deferred('grab_focus')
+    $"container-ui/panel/margin/vbox/actions/button-close".call_deferred('grab_focus')
 
 func openUI():
     $"container-ui".visible = true
