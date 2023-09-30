@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87gig"]
 size = Vector2(16, 10)
 
-[node name="shelf" type="StaticBody2D"]
+[node name="shelf" type="StaticBody2D" groups=["shelf"]]
 collision_layer = 4
 collision_mask = 0
 

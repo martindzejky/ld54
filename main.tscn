@@ -8,7 +8,7 @@
 
 [node name="camera" type="Camera2D" parent="."]
 
-[node name="level" type="Node2D" parent="."]
+[node name="level" type="Node2D" parent="." groups=["level"]]
 y_sort_enabled = true
 
 [node name="tiles" type="TileMap" parent="level"]

@@ -92,6 +92,7 @@ interact={
 2d_physics/layer_1="human"
 2d_physics/layer_2="wall"
 2d_physics/layer_3="shelf"
+2d_physics/layer_4="door"
 
 [rendering]
 
