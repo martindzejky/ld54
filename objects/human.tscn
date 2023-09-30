@@ -1,13 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://bfcyym361ywav"]
+[gd_scene load_steps=14 format=3 uid="uid://bfcyym361ywav"]
 
 [ext_resource type="Texture2D" uid="uid://dgixn8xhksedb" path="res://sprites/human.png" id="1_iqthn"]
 [ext_resource type="Script" path="res://scripts/human.gd" id="1_qohe2"]
+[ext_resource type="Shader" path="res://shaders/human.gdshader" id="2_2ax8m"]
 [ext_resource type="Texture2D" uid="uid://b8mfj3anpjf63" path="res://sprites/human-arms.png" id="2_3ahy1"]
 [ext_resource type="Texture2D" uid="uid://beintkdrr5amn" path="res://sprites/shadow.png" id="4_drge0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fubmv"]
 radius = 2.0
 height = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyphq"]
+shader = ExtResource("2_2ax8m")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68mm8"]
+shader = ExtResource("2_2ax8m")
+shader_parameter/modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_ouux8"]
 resource_name = "idle"
@@ -93,12 +102,14 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fubmv")
 
 [node name="sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_jyphq")
 position = Vector2(0, -8)
 texture = ExtResource("1_iqthn")
 hframes = 11
 
 [node name="sprite-arms" type="Sprite2D" parent="."]
 visible = false
+material = SubResource("ShaderMaterial_68mm8")
 position = Vector2(0, -8)
 texture = ExtResource("2_3ahy1")
 

@@ -2,11 +2,11 @@
 
 [ext_resource type="TileSet" uid="uid://b1emy3ccan5v" path="res://tiles/shop.tres" id="1_mmgkn"]
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="2_o5nxu"]
-[ext_resource type="PackedScene" uid="uid://bfcyym361ywav" path="res://objects/human.tscn" id="3_83kbm"]
 [ext_resource type="PackedScene" uid="uid://b6ddrvyeqhuu4" path="res://objects/products/lemon.tscn" id="4_61ihm"]
 [ext_resource type="PackedScene" uid="uid://dsufu0xmur05a" path="res://objects/products/strawberry.tscn" id="4_q8b3n"]
 [ext_resource type="PackedScene" uid="uid://cdhta8gh7tbtv" path="res://objects/products/apple.tscn" id="5_vosqv"]
 [ext_resource type="PackedScene" uid="uid://oifxmjcimlra" path="res://objects/products/milkshake.tscn" id="7_bjcgk"]
+[ext_resource type="PackedScene" uid="uid://fjly6pr37lj4" path="res://objects/customer.tscn" id="8_5dtcu"]
 [ext_resource type="PackedScene" uid="uid://1tqqmhm4tpe5" path="res://objects/products/cola.tscn" id="8_mlmac"]
 
 [node name="main" type="Node2D"]
@@ -40,10 +40,7 @@ layer_2/z_index = -10
 layer_2/tile_data = PackedInt32Array(-3, 262148, 0, 65533, 262148, 0, 65532, 262148, 0, 65531, 262148, 0, 65530, 262148, 0, 131066, 262148, 0, 196602, 262148, 0, 262138, 262148, 0, 327674, 262148, 0, 327675, 262148, 0, 327676, 262148, 0, 327677, 262148, 0, 327678, 262148, 0, 327679, 262148, 0, 262144, 262148, 0, 262145, 262148, 0, 262146, 262148, 0, 196610, 262148, 0, 131074, 262148, 0, 65538, 262148, 0, 2, 262148, 0, -65534, 262148, 0, -65535, 262148, 0, -65536, 262148, 0, -1, 262148, 0, -2, 262148, 0, 131070, 262148, 0, 65534, 262148, 0, 65535, 262148, 0, 131071, 262148, 0, 196607, 262148, 0, 196606, 262148, 0, 196605, 262148, 0, 131069, 262148, 0, 131068, 262148, 0, 131067, 262148, 0, 196603, 262148, 0, 262139, 262148, 0, 262140, 262148, 0, 196604, 262148, 0, 262141, 262148, 0, 262142, 262148, 0, 262143, 262148, 0, 196608, 262148, 0, 131072, 262148, 0, 65536, 262148, 0, 0, 262148, 0, 1, 262148, 0, 65537, 262148, 0, 131073, 262148, 0, 196609, 262148, 0, -327685, 262148, 1, -327684, 262148, 1, -327683, 262148, 1, -327682, 262148, 1, -327681, 262148, 1, -393216, 262148, 1, -327680, 262148, 1, -262144, 262148, 1, -196608, 262148, 1, -131073, 262148, 1, -131074, 262148, 1, -131075, 262148, 1, -131076, 262148, 1, -131077, 262148, 1, -196613, 262148, 1, -262149, 262148, 1, -262148, 262148, 1, -196612, 262148, 1, -262147, 262148, 1, -196610, 262148, 1, -196609, 262148, 1, -262145, 262148, 1, -262146, 262148, 1, -196611, 262148, 1, -65541, 262148, 3, -65540, 262148, 3, -65539, 262148, 3, -65538, 262148, 3, -65537, 262148, 3, -131072, 262148, 3, -131071, 262148, 3, -131070, 262148, 3)
 
 [node name="player" parent="level" instance=ExtResource("2_o5nxu")]
-position = Vector2(14, 11)
-
-[node name="human" parent="level" instance=ExtResource("3_83kbm")]
-position = Vector2(-54, 43)
+position = Vector2(-24, -53)
 
 [node name="lemon" parent="level" instance=ExtResource("4_61ihm")]
 position = Vector2(-15, 44)
@@ -59,3 +56,6 @@ position = Vector2(19, 36)
 
 [node name="cola" parent="level" instance=ExtResource("8_mlmac")]
 position = Vector2(-20, 22)
+
+[node name="customer" parent="level" instance=ExtResource("8_5dtcu")]
+position = Vector2(-4, 29)
