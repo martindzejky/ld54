@@ -20,6 +20,9 @@ func _physics_process(_delta):
 
 func _process(_delta):
     
+    # if any GUI is focused, ignore move inputs
+    if get_viewport().gui_get_focus_owner(): return
+    
     if Input.is_action_just_pressed("interact"):
         interact()
         
@@ -58,8 +61,15 @@ func interact():
                 if container.canStoreItem():
                     var item := dropItem()
                     if item:
-                        container.storeItem(item)
-                        return
+                        
+                        # make sure that if carrying a basket, it cannot be inserted
+                        if item is ItemContainer:
+                            pickItem(item)
+                            return
+                        else:
+                            container.storeItem(item)
+                            return
+                        
             elif container.hasAnyItems():
                 if container.capacity > 1:
                     container.focusUI()

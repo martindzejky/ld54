@@ -11,7 +11,7 @@
 size = Vector2(16, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_34vnu"]
-radius = 17.0
+radius = 15.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bsuor"]
 atlas = ExtResource("4_5m6ok")
@@ -69,7 +69,9 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("5_0j5o3")
-containerNode = NodePath("..")
+rootNode = NodePath("..")
+containerNode = NodePath("../container")
+gridNode = NodePath("panel/margin/vbox/grid")
 
 [node name="panel" type="Panel" parent="container-ui"]
 layout_mode = 1
@@ -78,9 +80,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -40.0
+offset_top = -80.0
+offset_right = 40.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -110,7 +112,13 @@ focus_neighbor_left = NodePath("../button-pick")
 focus_previous = NodePath("../button-pick")
 icon = SubResource("AtlasTexture_6iy18")
 
+[node name="grid" type="GridContainer" parent="container-ui/panel/margin/vbox"]
+layout_mode = 2
+
 [connection signal="body_entered" from="player-area" to="player-area" method="_on_body_entered"]
 [connection signal="body_exited" from="player-area" to="player-area" method="_on_body_exited"]
+[connection signal="child_entered_tree" from="container" to="container-ui" method="_on_container_child_entered_tree"]
+[connection signal="child_exiting_tree" from="container" to="container-ui" method="_on_container_child_exiting_tree"]
+[connection signal="child_order_changed" from="container" to="container-ui" method="_on_container_child_order_changed"]
 [connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-pick" to="container-ui" method="_on_button_pick_pressed"]
 [connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-close" to="." method="closeUI"]

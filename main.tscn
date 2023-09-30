@@ -62,3 +62,6 @@ position = Vector2(-20, 22)
 
 [node name="basket" parent="level" instance=ExtResource("9_4fc6k")]
 position = Vector2(-3, -8)
+
+[node name="basket2" parent="level" instance=ExtResource("9_4fc6k")]
+position = Vector2(19, -8)
