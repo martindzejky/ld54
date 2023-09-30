@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b62ww8nn0ilvp"]
+[gd_scene load_steps=10 format=3 uid="uid://b62ww8nn0ilvp"]
 
 [ext_resource type="TileSet" uid="uid://b1emy3ccan5v" path="res://tiles/shop.tres" id="1_mmgkn"]
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="2_o5nxu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cdhta8gh7tbtv" path="res://objects/products/apple.tscn" id="5_vosqv"]
 [ext_resource type="PackedScene" uid="uid://oifxmjcimlra" path="res://objects/products/milkshake.tscn" id="7_bjcgk"]
 [ext_resource type="PackedScene" uid="uid://1tqqmhm4tpe5" path="res://objects/products/cola.tscn" id="8_mlmac"]
+[ext_resource type="PackedScene" uid="uid://clyojb0cp6b0g" path="res://objects/basket.tscn" id="9_4fc6k"]
 
 [node name="main" type="Node2D"]
 
@@ -58,3 +59,6 @@ position = Vector2(19, 36)
 
 [node name="cola" parent="level" instance=ExtResource("8_mlmac")]
 position = Vector2(-20, 22)
+
+[node name="basket" parent="level" instance=ExtResource("9_4fc6k")]
+position = Vector2(-3, -8)

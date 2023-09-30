@@ -8,6 +8,9 @@ class_name ItemContainer
 
 func _ready():
     assert(has_node('container'), 'ItemContainer missing a container child node!')
+    
+    if capacity > 1:
+        assert(has_node('container-ui'), 'ItemContainer with capacity > 1 must have a UI!')
 
 
 func hasAnyItems() -> bool:
@@ -20,8 +23,12 @@ func storeItem(item: Node2D):
     if not canStoreItem(): return
     
     item.reparent($container, false)
-    item.position = Vector2.ZERO
     item.rotation = 0
+    
+    if capacity == 1:
+        item.position = Vector2.ZERO
+    else:
+        item.position = Vector2(randf_range(-3, 3), randf_range(-1, 1))
     
     var shadow := item.find_child('shadow')
     if shadow: shadow.visible = false
@@ -38,3 +45,13 @@ func retrieveItem(index = 0) -> Node2D:
     
     item.reparent(level)
     return item
+    
+func focusUI():
+    openUI()
+    $"container-ui/panel/margin/vbox/actions/button-pick".call_deferred('grab_focus')
+
+func openUI():
+    $"container-ui".visible = true
+
+func closeUI():
+    $"container-ui".visible = false

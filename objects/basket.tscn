@@ -1,0 +1,116 @@
+[gd_scene load_steps=12 format=3 uid="uid://clyojb0cp6b0g"]
+
+[ext_resource type="Script" path="res://scripts/container.gd" id="1_fxe1a"]
+[ext_resource type="Texture2D" uid="uid://dxmqv1b4hm8c3" path="res://sprites/basket.png" id="2_4rnhj"]
+[ext_resource type="Texture2D" uid="uid://beintkdrr5amn" path="res://sprites/shadow.png" id="3_crylw"]
+[ext_resource type="Texture2D" uid="uid://dv03n2ehg48tm" path="res://ui/ui.png" id="4_5m6ok"]
+[ext_resource type="Script" path="res://scripts/container-area.gd" id="4_sjalk"]
+[ext_resource type="Script" path="res://scripts/container-ui.gd" id="5_0j5o3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ob8"]
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34vnu"]
+radius = 17.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsuor"]
+atlas = ExtResource("4_5m6ok")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1u28"]
+load_path = "res://.godot/imported/ui.png-ef864d40b34feab5b9a4902640fca412.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iy18"]
+atlas = SubResource("CompressedTexture2D_h1u28")
+region = Rect2(16, 0, 16, 16)
+
+[node name="basket" type="StaticBody2D" groups=["basket", "pickable"]]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_fxe1a")
+capacity = 4
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_4rnhj")
+
+[node name="shadow" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(0, -3)
+scale = Vector2(1.64, 1.48)
+texture = ExtResource("3_crylw")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_s1ob8")
+
+[node name="player-area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource("4_sjalk")
+
+[node name="shape" type="CollisionShape2D" parent="player-area"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_34vnu")
+
+[node name="container" type="Marker2D" parent="."]
+position = Vector2(0, -5)
+
+[node name="container-ui" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_0j5o3")
+containerNode = NodePath("..")
+
+[node name="panel" type="Panel" parent="container-ui"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="margin" type="MarginContainer" parent="container-ui/panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vbox" type="VBoxContainer" parent="container-ui/panel/margin"]
+layout_mode = 2
+
+[node name="actions" type="HBoxContainer" parent="container-ui/panel/margin/vbox"]
+layout_mode = 2
+
+[node name="button-pick" type="Button" parent="container-ui/panel/margin/vbox/actions"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../button-close")
+focus_next = NodePath("../button-close")
+icon = SubResource("AtlasTexture_bsuor")
+
+[node name="button-close" type="Button" parent="container-ui/panel/margin/vbox/actions"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../button-pick")
+focus_previous = NodePath("../button-pick")
+icon = SubResource("AtlasTexture_6iy18")
+
+[connection signal="body_entered" from="player-area" to="player-area" method="_on_body_entered"]
+[connection signal="body_exited" from="player-area" to="player-area" method="_on_body_exited"]
+[connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-pick" to="container-ui" method="_on_button_pick_pressed"]
+[connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-close" to="." method="closeUI"]
