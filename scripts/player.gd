@@ -70,8 +70,9 @@ func interact():
                             container.storeItem(item)
                             return
                         
-            elif container.hasAnyItems():
+            else:
                 if container.capacity > 1:
+                    container.openUI()
                     container.focusUI()
                     return
                 else:
