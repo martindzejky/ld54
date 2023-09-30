@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drha4wr70ghbx"]
+
+[ext_resource type="PackedScene" uid="uid://b0yxlgnqlqfx" path="res://objects/shelf.tscn" id="1_frv6k"]
+
+[node name="shelf-fridge" instance=ExtResource("1_frv6k")]
+
+[node name="sprite" parent="." index="0"]
+frame = 1

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfcyym361ywav"]
+
+[ext_resource type="Texture2D" uid="uid://dgixn8xhksedb" path="res://sprites/human.png" id="1_iqthn"]
+[ext_resource type="Script" path="res://scripts/human.gd" id="1_qohe2"]
+[ext_resource type="Texture2D" uid="uid://b8mfj3anpjf63" path="res://sprites/human-arms.png" id="2_3ahy1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fubmv"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xi511"]
+radius = 3.0
+
+[node name="human" type="CharacterBody2D"]
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_qohe2")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fubmv")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_iqthn")
+
+[node name="sprite-arms" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("2_3ahy1")
+
+[node name="hands" type="Marker2D" parent="." groups=["hands"]]
+position = Vector2(0, -16)
+
+[node name="interaction-area" type="Area2D" parent="."]
+position = Vector2(8, -8)
+monitorable = false
+
+[node name="shape" type="CollisionShape2D" parent="interaction-area"]
+shape = SubResource("CircleShape2D_xi511")
