@@ -6,3 +6,6 @@
 
 [node name="sprite" parent="." index="0"]
 frame = 0
+
+[node name="container" parent="." index="2"]
+position = Vector2(0, 3)

@@ -10,7 +10,7 @@ func _physics_process(_delta):
     var moveInput := Vector2(moveX, moveY).normalized()
     
     if moveInput.length_squared() > 0:
-        $"interaction-area".position = Vector2(0, -2.0) + moveInput * Vector2(8.0, 7.0)
+        $"interaction-area".position = Vector2(0, -2.0) + moveInput * Vector2(5.0, 4.0)
     
     velocity = moveInput * walkSpeed
     move_and_slide()
@@ -38,6 +38,27 @@ func interact():
         if body.is_in_group('door-area'):
             (body.get_parent() as Door).toggle()
             return
+        
+        if body.is_in_group('pickable') and not isCarryingAnything():
+            pickItem(body)
+            return
+        
+        if body is ItemContainer:
+            var container := body as ItemContainer
+            
+            if isCarryingAnything():
+                if container.canStoreItem():
+                    var item := dropItem()
+                    if item:
+                        container.storeItem(item)
+                        return
+            else:
+                if container.hasAnyItems():
+                    var item := container.retrieveItem()
+                    if item:
+                        pickItem(item)
+                        return
+            
     
     # if nothing can be interacted with, the player can drop the item they are carrying
     if isCarryingAnything():

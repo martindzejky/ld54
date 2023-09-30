@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsufu0xmur05a"]
+
+[ext_resource type="PackedScene" uid="uid://rylb8pwby5wr" path="res://objects/products/product.tscn" id="1_dwci4"]
+
+[node name="strawberry" instance=ExtResource("1_dwci4")]
+
+[node name="shape" parent="." index="1"]
+position = Vector2(1, -2)
