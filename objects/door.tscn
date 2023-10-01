@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcc0o6vn1bgh7"]
+[gd_scene load_steps=5 format=3 uid="uid://dcc0o6vn1bgh7"]
 
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_5k1sb"]
 [ext_resource type="Texture2D" uid="uid://o2cyflc7sgxe" path="res://sprites/door.png" id="1_q21j5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3vfu"]
 size = Vector2(16, 8)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xjqgh"]
+vertices = PackedVector2Array(-8, -8, 8, -8, 8, 7, -8, 7)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 7, -8, 7)])
 
 [node name="door" type="StaticBody2D" groups=["door"]]
 collision_layer = 2
@@ -28,3 +33,7 @@ monitoring = false
 [node name="shape" type="CollisionShape2D" parent="area"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_p3vfu")
+
+[node name="navigation" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_xjqgh")
+enabled = false
