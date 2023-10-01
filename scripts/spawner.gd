@@ -3,6 +3,7 @@ class_name Spawner
 
 
 @export var customer: PackedScene
+var isSpawning := true
 
 
 func _ready():
@@ -13,6 +14,8 @@ func startTimer():
     spawn()
 
 func spawn():
+    if not isSpawning: return
+    
     call_deferred('startTimer')
     
     var customerObj = customer.instantiate()

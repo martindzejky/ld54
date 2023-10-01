@@ -66,6 +66,11 @@ func interact():
             (body.get_parent() as Door).toggle()
             return
         
+        if body is CashDeskComputer:
+            body.openUI()
+            body.focusUI()
+            return
+        
         if body is ItemContainer:
             var container := body as ItemContainer
             

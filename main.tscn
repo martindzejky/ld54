@@ -10,7 +10,7 @@
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(-22, -51)
 
-[node name="exit" type="Marker2D" parent="." groups=["exit"]]
+[node name="exit" type="Marker2D" parent="." groups=["exit", "spawner"]]
 position = Vector2(30, 40)
 script = ExtResource("1_jnysb")
 customer = ExtResource("8_5dtcu")

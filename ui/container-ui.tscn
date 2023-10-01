@@ -15,6 +15,7 @@ atlas = ExtResource("2_ukjl3")
 region = Rect2(0, 0, 16, 16)
 
 [node name="container-ui" type="Control"]
+z_index = 20
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5

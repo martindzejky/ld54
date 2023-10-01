@@ -42,33 +42,6 @@ func _ready():
         wantsList.append(product)
 
 
-func _process(_delta):
-    
-    if OS.is_debug_build():
-        queue_redraw()
-
-func _draw():
-    
-    if not OS.is_debug_build(): return
-    
-    if targetPosition:
-        draw_line(Vector2.ZERO, targetPosition - global_position, Color.GREEN)
-        
-    if targetProduct:
-        draw_line(Vector2.ZERO, targetProduct.global_position - global_position, Color.RED)
-    
-    if myBasket:
-        draw_line(Vector2.ZERO, myBasket.global_position - global_position, Color.BLUE)
-    
-    var currentState := ''
-    for state in $ai/active.get_children():
-        currentState += state.name + ' '
-    
-    currentState += var_to_str(wantsList.size())
-    
-    draw_string(ThemeDB.fallback_font, Vector2(-200, 0), currentState, HORIZONTAL_ALIGNMENT_RIGHT, -1, 12, Color.WHITE)
-
-
 func displayCallout(index: int, product: Product = null):
     
     $"ui-timer".stop()

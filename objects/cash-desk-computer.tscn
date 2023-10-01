@@ -1,3 +1,165 @@
-[gd_scene format=3 uid="uid://c1hbj7nlq2r4x"]
+[gd_scene load_steps=10 format=3 uid="uid://c1hbj7nlq2r4x"]
 
-[node name="cash-desk-computer" type="Node2D" groups=["cash-desk", "cash-desk-computer"]]
+[ext_resource type="Script" path="res://scripts/cash-desk-computer.gd" id="1_yafrr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dl1n"]
+size = Vector2(14, 14)
+
+[sub_resource type="GDScript" id="GDScript_dc74g"]
+script/source = "extends Label
+
+
+func _process(_delta):
+    text = 'Total sold: ' + var_to_str(Shop.totalSold) + '€'
+"
+
+[sub_resource type="GDScript" id="GDScript_kxo53"]
+script/source = "extends Label
+
+
+func _process(_delta):
+    text = 'Sold today: ' + var_to_str(Shop.soldToday) + '€'
+"
+
+[sub_resource type="GDScript" id="GDScript_055ba"]
+script/source = "extends Label
+
+
+func _process(_delta):
+    if Shop.isOpen:
+        text = 'Shop is open'
+        add_theme_color_override(\"font_color\", Color.GREEN)
+    else:
+        text = 'Shop is closed.\\nWait for customers to leave...'
+        add_theme_color_override(\"font_color\", Color.RED)
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1u28"]
+load_path = "res://.godot/imported/ui.png-ef864d40b34feab5b9a4902640fca412.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2fdt"]
+atlas = SubResource("CompressedTexture2D_h1u28")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="GDScript" id="GDScript_gv728"]
+script/source = "extends Button
+
+
+func _process(_delta):
+    disabled = not Shop.isOpen
+
+func _on_pressed():
+    Shop.isOpen = false
+    get_tree().get_first_node_in_group('spawner').isSpawning = false
+"
+
+[sub_resource type="GDScript" id="GDScript_3orng"]
+script/source = "extends Button
+
+
+func _process(_delta):
+    
+    if Shop.isOpen:
+        disabled = true
+        return
+    
+    if get_tree().get_first_node_in_group('customer'):
+        disabled = true
+    else:
+        disabled = false
+
+
+func _on_pressed():
+    if disabled: return
+    
+    Shop.day += 1
+    get_tree().change_scene_to_file('res://day.tscn')
+"
+
+[node name="cash-desk-computer" type="StaticBody2D" groups=["cash-desk", "cash-desk-computer"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_yafrr")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4dl1n")
+
+[node name="ui" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="panel" type="Panel" parent="ui"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.0
+offset_top = -136.0
+offset_right = 84.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="margin" type="MarginContainer" parent="ui/panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vbox" type="VBoxContainer" parent="ui/panel/margin"]
+layout_mode = 2
+
+[node name="total" type="Label" parent="ui/panel/margin/vbox"]
+layout_mode = 2
+text = "Total sold:"
+script = SubResource("GDScript_dc74g")
+
+[node name="today" type="Label" parent="ui/panel/margin/vbox"]
+layout_mode = 2
+text = "Sold today:"
+script = SubResource("GDScript_kxo53")
+
+[node name="open" type="Label" parent="ui/panel/margin/vbox"]
+layout_mode = 2
+autowrap_mode = 2
+script = SubResource("GDScript_055ba")
+
+[node name="grow" type="Control" parent="ui/panel/margin/vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="actions" type="HBoxContainer" parent="ui/panel/margin/vbox"]
+layout_mode = 2
+
+[node name="close-ui" type="Button" parent="ui/panel/margin/vbox/actions"]
+layout_mode = 2
+icon = SubResource("AtlasTexture_o2fdt")
+
+[node name="close-shop" type="Button" parent="ui/panel/margin/vbox/actions"]
+layout_mode = 2
+text = "Close shop"
+script = SubResource("GDScript_gv728")
+
+[node name="end-day" type="Button" parent="ui/panel/margin/vbox/actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "End day"
+script = SubResource("GDScript_3orng")
+
+[connection signal="pressed" from="ui/panel/margin/vbox/actions/close-ui" to="." method="closeUI"]
+[connection signal="pressed" from="ui/panel/margin/vbox/actions/close-shop" to="ui/panel/margin/vbox/actions/close-shop" method="_on_pressed"]
+[connection signal="pressed" from="ui/panel/margin/vbox/actions/close-shop" to="." method="focusUI"]
+[connection signal="pressed" from="ui/panel/margin/vbox/actions/end-day" to="ui/panel/margin/vbox/actions/end-day" method="_on_pressed"]
+[connection signal="pressed" from="ui/panel/margin/vbox/actions/end-day" to="." method="focusUI"]

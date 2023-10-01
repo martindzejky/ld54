@@ -41,7 +41,7 @@ resource_local_to_scene = true
 atlas = ExtResource("4_24blm")
 region = Rect2(0, 0, 16, 16)
 
-[node name="customer" instance=ExtResource("1_3eohn")]
+[node name="customer" groups=["customer"] instance=ExtResource("1_3eohn")]
 script = ExtResource("2_ko8o3")
 
 [node name="shape" parent="." index="0"]
