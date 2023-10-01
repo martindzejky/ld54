@@ -36,6 +36,10 @@ func _process(_delta):
 
 func sortingFunction(a, b):
     
+    # always prefer baskets
+    if b is Basket: return false
+    if a is Basket: return true
+    
     # prefer interacting with containers first
     if b is ItemContainer: return false
     if a is ItemContainer: return true

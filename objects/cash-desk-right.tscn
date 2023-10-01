@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg336kof7avm5"]
+[gd_scene load_steps=4 format=3 uid="uid://dg336kof7avm5"]
 
 [ext_resource type="Script" path="res://scripts/container.gd" id="1_qpy1k"]
+[ext_resource type="PackedScene" uid="uid://luiumy05yr4e" path="res://ui/container-ui.tscn" id="2_cmvh4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p6al"]
 size = Vector2(14, 14)
@@ -16,3 +17,23 @@ shape = SubResource("RectangleShape2D_4p6al")
 
 [node name="container" type="Marker2D" parent="."]
 position = Vector2(0, 1)
+
+[node name="container-ui" parent="." instance=ExtResource("2_cmvh4")]
+visible = false
+offset_left = 0.0
+offset_top = -19.0
+offset_right = 0.0
+offset_bottom = -19.0
+rootNode = NodePath("..")
+containerNode = NodePath("../container")
+
+[node name="button-pick" parent="container-ui/panel/margin/vbox/actions" index="1"]
+visible = false
+
+[connection signal="child_entered_tree" from="container" to="container-ui" method="_on_container_child_entered_tree"]
+[connection signal="child_exiting_tree" from="container" to="container-ui" method="_on_container_child_exiting_tree"]
+[connection signal="child_order_changed" from="container" to="container-ui" method="_on_container_child_order_changed"]
+[connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-close" to="." method="closeUI"]
+[connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-pick" to="." method="closeUI"]
+
+[editable path="container-ui"]
