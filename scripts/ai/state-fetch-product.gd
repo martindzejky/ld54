@@ -14,6 +14,11 @@ func enter():
     agent.target_position = customer.targetProduct.global_position
     
     animation.play('walk')
+    
+func exit():
+    
+    customer.targetPosition = customer.global_position
+    agent.target_position = customer.targetPosition
 
 func physicsUpdate(_delta):
     
@@ -24,6 +29,9 @@ func physicsUpdate(_delta):
         return
     
     if agent.is_navigation_finished() or agent.distance_to_target() < 16:
+      
+        customer.targetPosition = customer.global_position
+        agent.target_position = customer.targetPosition
         
         if customer.isCarryingAnything():
             customer.dropItem()
@@ -45,8 +53,7 @@ func physicsUpdate(_delta):
     newVelocity = newVelocity.normalized()
     newVelocity = newVelocity * customer.walkSpeed
 
-    customer.velocity = newVelocity
-    customer.move_and_slide()
+    agent.velocity = newVelocity
 
 
 func isTargetProductAvailable() -> bool:

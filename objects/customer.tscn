@@ -152,4 +152,5 @@ customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")
 
+[connection signal="velocity_computed" from="agent" to="." method="_on_agent_velocity_computed"]
 [connection signal="timeout" from="ui-timer" to="." method="hideCallout"]

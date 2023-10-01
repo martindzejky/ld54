@@ -26,7 +26,11 @@ material = SubResource("ShaderMaterial_3bax0")
 [node name="sprite-arms" parent="." index="2"]
 material = SubResource("ShaderMaterial_5wmre")
 
-[node name="interaction-area" type="Area2D" parent="." index="4"]
+[node name="obstacle" type="NavigationObstacle2D" parent="." index="4"]
+position = Vector2(0, -3)
+radius = 3.0
+
+[node name="interaction-area" type="Area2D" parent="." index="5"]
 position = Vector2(8, -8)
 collision_layer = 0
 collision_mask = 62

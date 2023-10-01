@@ -40,5 +40,4 @@ func physicsUpdate(_delta):
     newVelocity = newVelocity.normalized()
     newVelocity = newVelocity * customer.walkSpeed
 
-    customer.velocity = newVelocity
-    customer.move_and_slide()
+    agent.velocity = newVelocity

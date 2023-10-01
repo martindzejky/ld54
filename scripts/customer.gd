@@ -29,6 +29,8 @@ func setupColor():
 
 func _ready():
     
+    $agent.max_speed = walkSpeed
+    
     # choose products that the customer wants
     
     var catalogProducts = Catalog.get_children()
@@ -92,3 +94,8 @@ func displayCallout(index: int, product: Product = null):
 
 func hideCallout():
     $ui.visible = false
+
+
+func _on_agent_velocity_computed(safeVelocity):
+    velocity = safeVelocity
+    move_and_slide()

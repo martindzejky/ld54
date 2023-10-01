@@ -11,6 +11,11 @@ func enter():
     
     animation.play('walk')
 
+func exit():
+    
+    customer.targetPosition = customer.global_position
+    agent.target_position = customer.targetPosition
+
 func physicsUpdate(_delta):
     
     if customer.myBasket.get_parent().name != 'tiles' and customer.myBasket.get_parent().name != 'level':
@@ -40,5 +45,4 @@ func physicsUpdate(_delta):
     newVelocity = newVelocity.normalized()
     newVelocity = newVelocity * customer.walkSpeed
 
-    customer.velocity = newVelocity
-    customer.move_and_slide()
+    agent.velocity = newVelocity

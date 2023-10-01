@@ -29,4 +29,5 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_xflst")
 
 [node name="obstacle" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(0, 0, 5, -2, 0, -4, -5, -2)
+position = Vector2(0, -2)
+radius = 3.0
