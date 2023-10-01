@@ -31,6 +31,12 @@ func physicsUpdate(_delta):
         emit_signal('transition', 'idle')
         return
     
+    if not agent.is_target_reachable():
+        print('Target product is not reachable')
+        customer.dropItem()
+        emit_signal('transition', 'idle')
+        return
+    
     if agent.is_navigation_finished() or agent.distance_to_target() < 16:
         
         if customer.isCarryingAnything():
