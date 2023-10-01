@@ -11,7 +11,7 @@
 
 [node name="catalog" type="Node2D"]
 visible = false
-position = Vector2(-200, 0)
+position = Vector2(-10000, 0)
 
 [node name="apple" parent="." instance=ExtResource("2_sicip")]
 

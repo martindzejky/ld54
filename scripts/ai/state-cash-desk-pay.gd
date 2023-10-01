@@ -2,6 +2,7 @@ extends AIState
 class_name AIStateGoToCashPay
 
 
+@export var floatingPrice: PackedScene
 var cashDeskComputer: Node
 
 
@@ -30,7 +31,20 @@ func physicsUpdate(_delta):
         print('Paying at the cash desk')
         customer.displayCallout(3)
         
-        # TODO: add cash to the shop
+        
+        var products := get_tree().get_nodes_in_group('product')
+        var myProducts := products.filter(func (product): return product.customer == customer)
+        var total := 0.0
+        
+        for product in myProducts:
+            total += product.price
+        
+        var price := floatingPrice.instantiate()
+        assert(price is FloatingPrice, 'Not a floating price!')
+        price.setPrice(total)
+        get_node('/root').add_child(price)
+        
+        Shop.addSoldAmount(total)
         
         emit_signal('transition', 'fetch-paid-products')
         return

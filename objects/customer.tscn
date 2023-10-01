@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://fjly6pr37lj4"]
+[gd_scene load_steps=27 format=3 uid="uid://fjly6pr37lj4"]
 
 [ext_resource type="PackedScene" uid="uid://bfcyym361ywav" path="res://objects/human.tscn" id="1_3eohn"]
 [ext_resource type="Script" path="res://scripts/customer.gd" id="2_ko8o3"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/ai/state-cash-desk-wait-line.gd" id="18_qv6b6"]
 [ext_resource type="Script" path="res://scripts/ai/state-wait-cash-desk.gd" id="19_jjj5b"]
 [ext_resource type="Script" path="res://scripts/ai/state-cash-desk-pay.gd" id="20_tbgvu"]
+[ext_resource type="PackedScene" uid="uid://dh4vj7ph7looi" path="res://objects/floating-price.tscn" id="21_6t515"]
 [ext_resource type="Script" path="res://scripts/ai/state-fetch-paid-products.gd" id="21_nykr6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r4pjh"]
@@ -198,6 +199,7 @@ agentNodePath = NodePath("../../../agent")
 
 [node name="cash-desk-pay" type="Node" parent="ai/states" index="14"]
 script = ExtResource("20_tbgvu")
+floatingPrice = ExtResource("21_6t515")
 customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")
