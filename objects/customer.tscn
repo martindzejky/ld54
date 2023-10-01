@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://fjly6pr37lj4"]
+[gd_scene load_steps=26 format=3 uid="uid://fjly6pr37lj4"]
 
 [ext_resource type="PackedScene" uid="uid://bfcyym361ywav" path="res://objects/human.tscn" id="1_3eohn"]
 [ext_resource type="Script" path="res://scripts/customer.gd" id="2_ko8o3"]
@@ -16,6 +16,11 @@
 [ext_resource type="Script" path="res://scripts/ai/state-fetch-basket.gd" id="12_lwygd"]
 [ext_resource type="Script" path="res://scripts/ai/state-put-into-basket.gd" id="14_dnstu"]
 [ext_resource type="Script" path="res://scripts/ai/state-drop-basket-for-product.gd" id="16_v2fvd"]
+[ext_resource type="Script" path="res://scripts/ai/state-go-to-cash-desk.gd" id="17_sspfg"]
+[ext_resource type="Script" path="res://scripts/ai/state-cash-desk-wait-line.gd" id="18_qv6b6"]
+[ext_resource type="Script" path="res://scripts/ai/state-wait-cash-desk.gd" id="19_jjj5b"]
+[ext_resource type="Script" path="res://scripts/ai/state-cash-desk-pay.gd" id="20_tbgvu"]
+[ext_resource type="Script" path="res://scripts/ai/state-fetch-paid-products.gd" id="21_nykr6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r4pjh"]
 radius = 4.0
@@ -142,26 +147,63 @@ customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")
 
-[node name="fetch-product" type="Node" parent="ai/states" index="6"]
+[node name="fetch-basket-pay" type="Node" parent="ai/states" index="6"]
+script = ExtResource("12_lwygd")
+nextState = "go-to-cash-desk"
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="fetch-product" type="Node" parent="ai/states" index="7"]
 script = ExtResource("12_ltfdr")
 customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")
 
-[node name="put-into-basket" type="Node" parent="ai/states" index="7"]
+[node name="put-into-basket" type="Node" parent="ai/states" index="8"]
 script = ExtResource("14_dnstu")
 customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")
 
-[node name="idle" type="Node" parent="ai/states" index="8"]
+[node name="idle" type="Node" parent="ai/states" index="9"]
 script = ExtResource("5_8ech2")
 customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")
 
-[node name="drop-basket-for-product" type="Node" parent="ai/states" index="9"]
+[node name="drop-basket-for-product" type="Node" parent="ai/states" index="10"]
 script = ExtResource("16_v2fvd")
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="go-to-cash-desk" type="Node" parent="ai/states" index="11"]
+script = ExtResource("17_sspfg")
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="cash-desk-wait-line" type="Node" parent="ai/states" index="12"]
+script = ExtResource("18_qv6b6")
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="wait-cash-desk" type="Node" parent="ai/states" index="13"]
+script = ExtResource("19_jjj5b")
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="cash-desk-pay" type="Node" parent="ai/states" index="14"]
+script = ExtResource("20_tbgvu")
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="fetch-paid-products" type="Node" parent="ai/states" index="15"]
+script = ExtResource("21_nykr6")
 customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")

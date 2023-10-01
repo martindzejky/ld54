@@ -35,6 +35,7 @@ func _process(_delta):
         
 
 func sortingFunction(a, b):
+    
     # prefer interacting with containers first
     if b is ItemContainer: return false
     if a is ItemContainer: return true
@@ -70,7 +71,8 @@ func interact():
                     if item:
                         
                         # make sure that if carrying a basket, it cannot be inserted
-                        if item is ItemContainer:
+                        # (unless this is a cash desk)
+                        if item is ItemContainer and not container.is_in_group('cash-desk'):
                             pickItem(item)
                             return
                         else:

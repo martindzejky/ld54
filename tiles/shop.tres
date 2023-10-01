@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=28 format=3 uid="uid://b1emy3ccan5v"]
+[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://b1emy3ccan5v"]
 
 [ext_resource type="Texture2D" uid="uid://bpug5adlw6ns8" path="res://sprites/cash-desk.png" id="1_ghtlr"]
 [ext_resource type="Texture2D" uid="uid://dyb1fleacie1d" path="res://tiles/walls.png" id="1_xau8c"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://drha4wr70ghbx" path="res://objects/shelf-fridge.tscn" id="5_weu1k"]
 [ext_resource type="PackedScene" uid="uid://dysdatjd2b2k1" path="res://objects/storage.tscn" id="6_wvxt0"]
 [ext_resource type="PackedScene" uid="uid://clyojb0cp6b0g" path="res://objects/basket.tscn" id="7_1qfor"]
+[ext_resource type="PackedScene" uid="uid://s02pduoa8j82" path="res://objects/cash-desk-left.tscn" id="9_2stjr"]
+[ext_resource type="PackedScene" uid="uid://c1hbj7nlq2r4x" path="res://objects/cash-desk-computer.tscn" id="10_bgeav"]
+[ext_resource type="PackedScene" uid="uid://dg336kof7avm5" path="res://objects/cash-desk-right.tscn" id="11_3o82u"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_6o447"]
 vertices = PackedVector2Array(-8, -24, 8, -24, 8, -12, -8, -12)
@@ -231,6 +234,12 @@ scenes/3/scene = ExtResource("5_weu1k")
 scenes/4/scene = ExtResource("6_wvxt0")
 scenes/6/scene = ExtResource("7_1qfor")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_nuecr"]
+resource_name = "cash-desk-objects"
+scenes/1/scene = ExtResource("9_2stjr")
+scenes/2/scene = ExtResource("10_bgeav")
+scenes/3/scene = ExtResource("11_3o82u")
+
 [resource]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
@@ -240,3 +249,4 @@ sources/4 = SubResource("TileSetAtlasSource_7w11q")
 sources/5 = SubResource("TileSetScenesCollectionSource_keqwp")
 sources/6 = SubResource("TileSetScenesCollectionSource_ctlt0")
 sources/0 = SubResource("TileSetAtlasSource_dvf48")
+sources/8 = SubResource("TileSetScenesCollectionSource_nuecr")

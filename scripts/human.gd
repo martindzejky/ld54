@@ -9,8 +9,8 @@ class_name Human
 func isCarryingAnything() -> bool:
     return $"sprite-arms".visible
 
-func pickItem(item: Node2D):
-    if isCarryingAnything(): return
+func pickItem(item: Node2D, force = false):
+    if isCarryingAnything() and not force: return
     $"sprite-arms".visible = true
     
     item.reparent($hands, false)

@@ -5,6 +5,9 @@ class_name Product
 @export var type: String
 @export var price: float = 0.0
 
+# who wants to purchase this product
+var customer: Customer
+
 
 func _on_picked_up():
     $shadow.visible = false

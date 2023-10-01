@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg336kof7avm5"]
+
+[ext_resource type="Script" path="res://scripts/container.gd" id="1_qpy1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4p6al"]
+size = Vector2(14, 14)
+
+[node name="cash-desk-right" type="StaticBody2D" groups=["cash-desk", "cash-desk-right"]]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_qpy1k")
+capacity = 4
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4p6al")
+
+[node name="container" type="Marker2D" parent="."]
+position = Vector2(0, 1)

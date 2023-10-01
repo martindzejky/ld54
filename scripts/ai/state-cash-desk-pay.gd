@@ -1,19 +1,20 @@
 extends AIState
-class_name AIStateFetchBasket
+class_name AIStateGoToCashPay
 
 
-@export var nextState = 'fetch-product'
+var cashDeskComputer: Node
 
 
 func enter():
     
-    assert(customer.myBasket, 'My basket does not exist!')
+    cashDeskComputer = get_tree().get_first_node_in_group('cash-desk-computer')
+    assert(cashDeskComputer, 'Missing cash desk computer!')
     
-    customer.targetPosition = customer.myBasket.global_position
-    agent.target_position = customer.myBasket.global_position
+    customer.targetPosition = cashDeskComputer.global_position
+    agent.target_position = cashDeskComputer.global_position
     
     animation.play('walk')
-
+    
 func exit():
     
     customer.targetPosition = customer.global_position
@@ -24,17 +25,14 @@ func exit():
 
 func physicsUpdate(_delta):
     
-    if customer.myBasket.get_parent().name != 'tiles' and customer.myBasket.get_parent().name != 'level':
-        print('Basket is no longer on the floor')
-        emit_signal('transition', 'idle')
-        return
-    
     if agent.is_navigation_finished() or agent.distance_to_target() < 20:
         
-        print('Picking the basket')
-        customer.dropItem()
-        customer.pickItem(customer.myBasket)
-        emit_signal('transition', nextState)
+        print('Paying at the cash desk')
+        customer.displayCallout(3)
+        
+        # TODO: add cash to the shop
+        
+        emit_signal('transition', 'fetch-paid-products')
         return
     
     var nextPathPosition := agent.get_next_path_position()
@@ -44,3 +42,4 @@ func physicsUpdate(_delta):
     newVelocity = newVelocity * customer.walkSpeed
 
     agent.velocity = newVelocity
+

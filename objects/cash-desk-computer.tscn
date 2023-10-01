@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://c1hbj7nlq2r4x"]
+
+[node name="cash-desk-computer" type="Node2D" groups=["cash-desk", "cash-desk-computer"]]

@@ -18,10 +18,21 @@ func enter():
         emit_signal('transition', 'choose-product')
         return
     
-    # TODO: go to the cash desk
-    if randf() < 0.7:
-        push_warning('No more items in wants list, let us pay!')
-        emit_signal('transition', 'leave')
+    if randf() < 0.8:
+        
+        # do we have any products to pay for?
+        if get_tree().get_nodes_in_group('product').any(func (product): return product.customer == customer):
+        
+            if customer.myBasket:
+                emit_signal('transition', 'fetch-basket-pay')
+            else:
+                emit_signal('transition', 'go-to-cash-desk')
+        
+        else:
+            
+            # just leave
+            emit_signal('transition', 'leave')
+            
         return
     
     # fallback

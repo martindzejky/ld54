@@ -10,6 +10,7 @@ func enter():
             customer.wantsList.remove_at(i)
             break
     
+    customer.targetProduct.customer = customer
     customer.targetProduct = null
     
     # if this customer does not have a basket, just hold the product in hands and go to the cash desk

@@ -9,7 +9,7 @@
 size = Vector2(16, 16)
 
 [node name="storage" type="StaticBody2D" groups=["storage"]]
-collision_layer = 32
+collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_jyl73")
 capacity = 9

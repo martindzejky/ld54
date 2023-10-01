@@ -20,6 +20,8 @@ func exit():
     customer.targetPosition = customer.global_position
     agent.target_position = customer.targetPosition
     agent.velocity = Vector2.ZERO
+    
+    animation.play('idle')
 
 func physicsUpdate(_delta):
     

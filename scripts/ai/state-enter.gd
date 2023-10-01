@@ -16,7 +16,7 @@ func enter():
     exited = false
     
     # for safety, limit the wander time in case the customer gets stuck
-    await get_tree().create_timer(randf_range(3.0, 5.0)).timeout
+    await get_tree().create_timer(randf_range(0.5, 2.0)).timeout
     
     if not exited:
         emit_signal('transition', 'idle')
