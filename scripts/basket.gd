@@ -13,7 +13,7 @@ func _on_picked_up():
     
 func _on_stored():
     $shadow.visible = false
-    $shape.disabled = true
+    #$shape.disabled = true # has to be enabled for cash desk interaction
     $obstacle.avoidance_enabled = false
     
 
