@@ -1,9 +1,11 @@
-# Ludum Dare #54 Submission
+# Tiny Shop
 
-I'll add more info here when there's a game to write about... Tools of choice:
+This is a Ludum Dare #54 submission for theme *Limited Space*. As such, your goal is to run a tiny shop and make a living.
+
+Tools of choice:
 
 - [Godot](https://godotengine.org/)
 - [Aseprite](https://www.aseprite.org/)
-- Bfxr (?)
+- [jsfxr](https://sfxr.me/)
 
-https://ldjam.com/events/ludum-dare/54/
+https://ldjam.com/events/ludum-dare/54/tiny-shop
