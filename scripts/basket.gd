@@ -1,6 +1,11 @@
 extends ItemContainer
 class_name Basket
 
+
+# if not null, this is the customer currently using this basket
+var customer: Customer
+
+
 func _on_picked_up():
     $shadow.visible = false
     $shape.disabled = true

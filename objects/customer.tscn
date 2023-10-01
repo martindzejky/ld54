@@ -1,7 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://fjly6pr37lj4"]
+[gd_scene load_steps=10 format=3 uid="uid://fjly6pr37lj4"]
 
 [ext_resource type="PackedScene" uid="uid://bfcyym361ywav" path="res://objects/human.tscn" id="1_3eohn"]
 [ext_resource type="Script" path="res://scripts/customer.gd" id="2_ko8o3"]
+[ext_resource type="Shader" path="res://shaders/human.gdshader" id="3_hlhwp"]
+[ext_resource type="Script" path="res://scripts/ai/machine.gd" id="4_ocdey"]
+[ext_resource type="Script" path="res://scripts/ai/state-idle.gd" id="5_8ech2"]
+[ext_resource type="Script" path="res://scripts/ai/state-wander.gd" id="6_03qp6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4pjh"]
+radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ro2w4"]
+resource_local_to_scene = true
+shader = ExtResource("3_hlhwp")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhc3w"]
+resource_local_to_scene = true
+shader = ExtResource("3_hlhwp")
+shader_parameter/modulate = Color(1, 1, 1, 1)
 
 [node name="customer" instance=ExtResource("1_3eohn")]
 script = ExtResource("2_ko8o3")
+
+[node name="shape" parent="." index="0"]
+shape = SubResource("CircleShape2D_r4pjh")
+
+[node name="sprite" parent="." index="1"]
+material = SubResource("ShaderMaterial_ro2w4")
+
+[node name="sprite-arms" parent="." index="2"]
+material = SubResource("ShaderMaterial_mhc3w")
+
+[node name="agent" type="NavigationAgent2D" parent="." index="6"]
+path_desired_distance = 4.0
+target_desired_distance = 4.0
+path_max_distance = 12.0
+avoidance_enabled = true
+radius = 4.0
+neighbor_distance = 16.0
+max_neighbors = 3
+max_speed = 30.0
+
+[node name="ai" type="Node" parent="." index="7"]
+script = ExtResource("4_ocdey")
+
+[node name="active" type="Node" parent="ai" index="0"]
+
+[node name="idle" type="Node" parent="ai/active" index="0"]
+script = ExtResource("5_8ech2")
+customerNodePath = NodePath("../../..")
+
+[node name="states" type="Node" parent="ai" index="1"]
+
+[node name="wander" type="Node" parent="ai/states" index="0"]
+script = ExtResource("6_03qp6")
+customerNodePath = NodePath("../../..")
