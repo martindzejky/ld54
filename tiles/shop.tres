@@ -1,5 +1,6 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://b1emy3ccan5v"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://b1emy3ccan5v"]
 
+[ext_resource type="Texture2D" uid="uid://bpug5adlw6ns8" path="res://sprites/cash-desk.png" id="1_ghtlr"]
 [ext_resource type="Texture2D" uid="uid://dyb1fleacie1d" path="res://tiles/walls.png" id="1_xau8c"]
 [ext_resource type="PackedScene" uid="uid://dcc0o6vn1bgh7" path="res://objects/door.tscn" id="2_82oyk"]
 [ext_resource type="PackedScene" uid="uid://b0yxlgnqlqfx" path="res://objects/shelf.tscn" id="2_t1jh3"]
@@ -7,6 +8,31 @@
 [ext_resource type="PackedScene" uid="uid://drha4wr70ghbx" path="res://objects/shelf-fridge.tscn" id="5_weu1k"]
 [ext_resource type="PackedScene" uid="uid://dysdatjd2b2k1" path="res://objects/storage.tscn" id="6_wvxt0"]
 [ext_resource type="PackedScene" uid="uid://clyojb0cp6b0g" path="res://objects/basket.tscn" id="7_1qfor"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dvf48"]
+resource_name = "cash-desk"
+texture = ExtResource("1_ghtlr")
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 8)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 8)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w11q"]
 resource_name = "walls"
@@ -117,3 +143,4 @@ physics_layer_0/collision_mask = 0
 sources/4 = SubResource("TileSetAtlasSource_7w11q")
 sources/5 = SubResource("TileSetScenesCollectionSource_keqwp")
 sources/6 = SubResource("TileSetScenesCollectionSource_ctlt0")
+sources/0 = SubResource("TileSetAtlasSource_dvf48")

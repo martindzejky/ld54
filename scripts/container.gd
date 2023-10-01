@@ -34,6 +34,9 @@ func storeItem(item: Node2D):
     if shadow: shadow.visible = false
 
 func retrieveItem(index = 0) -> Node2D:
+    if index < 0: return null
+    if index >= $container.get_child_count(): return null
+    
     var item := $container.get_child(index)
     if not item: return null
     
