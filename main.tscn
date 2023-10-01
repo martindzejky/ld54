@@ -1,16 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b62ww8nn0ilvp"]
+[gd_scene load_steps=5 format=3 uid="uid://b62ww8nn0ilvp"]
 
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="1_jnysb"]
 [ext_resource type="TileSet" uid="uid://b1emy3ccan5v" path="res://tiles/shop.tres" id="1_mmgkn"]
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="2_o5nxu"]
-[ext_resource type="PackedScene" uid="uid://dsufu0xmur05a" path="res://objects/products/strawberry.tscn" id="4_q8b3n"]
-[ext_resource type="PackedScene" uid="uid://cdhta8gh7tbtv" path="res://objects/products/apple.tscn" id="5_vosqv"]
-[ext_resource type="PackedScene" uid="uid://dfoj30hakpqux" path="res://objects/products/carrot.tscn" id="6_0xkrn"]
-[ext_resource type="PackedScene" uid="uid://oifxmjcimlra" path="res://objects/products/milkshake.tscn" id="6_eeypc"]
 [ext_resource type="PackedScene" uid="uid://fjly6pr37lj4" path="res://objects/customer.tscn" id="8_5dtcu"]
-[ext_resource type="PackedScene" uid="uid://1tqqmhm4tpe5" path="res://objects/products/cola.tscn" id="8_mlmac"]
-[ext_resource type="PackedScene" uid="uid://cg0l7ixwx4xnc" path="res://objects/products/blue-box.tscn" id="10_gpai5"]
-[ext_resource type="PackedScene" uid="uid://ccu2vokcdvqjd" path="res://objects/products/milk.tscn" id="10_tn0dk"]
 
 [node name="main" type="Node2D"]
 
@@ -64,27 +57,3 @@ layer_4/tile_data = PackedInt32Array(65535, 8, 65536, 0, 8, 131072, 1, 8, 196608
 
 [node name="player" parent="level" instance=ExtResource("2_o5nxu")]
 position = Vector2(-24, -53)
-
-[node name="strawberry" parent="level" instance=ExtResource("4_q8b3n")]
-position = Vector2(-50, -34)
-
-[node name="milkshake" parent="level" instance=ExtResource("6_eeypc")]
-position = Vector2(-49, -45)
-
-[node name="milk" parent="level" instance=ExtResource("10_tn0dk")]
-position = Vector2(-42, -52)
-
-[node name="carrot" parent="level" instance=ExtResource("6_0xkrn")]
-position = Vector2(-6, -34)
-
-[node name="apple" parent="level" instance=ExtResource("5_vosqv")]
-position = Vector2(-73, 39)
-
-[node name="blue-box" parent="level" instance=ExtResource("10_gpai5")]
-position = Vector2(-60, 37)
-
-[node name="carrot2" parent="level" instance=ExtResource("6_0xkrn")]
-position = Vector2(-50, 37)
-
-[node name="cola" parent="level" instance=ExtResource("8_mlmac")]
-position = Vector2(-37, 40)
