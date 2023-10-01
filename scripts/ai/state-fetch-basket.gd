@@ -15,6 +15,7 @@ func exit():
     
     customer.targetPosition = customer.global_position
     agent.target_position = customer.targetPosition
+    agent.velocity = Vector2.ZERO
 
 func physicsUpdate(_delta):
     
@@ -25,16 +26,8 @@ func physicsUpdate(_delta):
     
     if agent.is_navigation_finished() or agent.distance_to_target() < 20:
         
-        if customer.isCarryingAnything():
-            customer.dropItem()
-            await get_tree().create_timer(randf_range(0.5, 1.0)).timeout
-        
-        if customer.myBasket.get_parent().name != 'tiles' and customer.myBasket.get_parent().name != 'level':
-            print('Basket is no longer on the floor (while dropping item)')
-            emit_signal('transition', 'idle')
-            return
-        
         print('Picking the basket')
+        customer.dropItem()
         customer.pickItem(customer.myBasket)
         emit_signal('transition', 'fetch-product')
         return

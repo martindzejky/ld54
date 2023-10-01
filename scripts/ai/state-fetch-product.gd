@@ -19,6 +19,7 @@ func exit():
     
     customer.targetPosition = customer.global_position
     agent.target_position = customer.targetPosition
+    agent.velocity = Vector2.ZERO
 
 func physicsUpdate(_delta):
     
@@ -29,17 +30,9 @@ func physicsUpdate(_delta):
         return
     
     if agent.is_navigation_finished() or agent.distance_to_target() < 16:
-      
-        customer.targetPosition = customer.global_position
-        agent.target_position = customer.targetPosition
         
         if customer.isCarryingAnything():
-            customer.dropItem()
-            await get_tree().create_timer(randf_range(0.5, 1.0)).timeout
-          
-        if not isTargetProductAvailable():
-            print('Target product is not available (while dropping item)')
-            emit_signal('transition', 'idle')
+            emit_signal('transition', 'drop-basket-for-product')
             return
         
         print('Picking the product')

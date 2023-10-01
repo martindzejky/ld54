@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://fjly6pr37lj4"]
+[gd_scene load_steps=21 format=3 uid="uid://fjly6pr37lj4"]
 
 [ext_resource type="PackedScene" uid="uid://bfcyym361ywav" path="res://objects/human.tscn" id="1_3eohn"]
 [ext_resource type="Script" path="res://scripts/customer.gd" id="2_ko8o3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/ai/machine.gd" id="4_ocdey"]
 [ext_resource type="Script" path="res://scripts/ai/state-idle.gd" id="5_8ech2"]
 [ext_resource type="Script" path="res://scripts/ai/state-wander.gd" id="6_03qp6"]
+[ext_resource type="Script" path="res://scripts/ai/state-enter.gd" id="6_lo1fs"]
 [ext_resource type="Script" path="res://scripts/ai/state-think.gd" id="7_anbxs"]
 [ext_resource type="Script" path="res://scripts/ai/state-choose-basket.gd" id="8_n405v"]
 [ext_resource type="Script" path="res://scripts/ai/state-leave.gd" id="10_akm10"]
@@ -14,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/ai/state-fetch-product.gd" id="12_ltfdr"]
 [ext_resource type="Script" path="res://scripts/ai/state-fetch-basket.gd" id="12_lwygd"]
 [ext_resource type="Script" path="res://scripts/ai/state-put-into-basket.gd" id="14_dnstu"]
+[ext_resource type="Script" path="res://scripts/ai/state-drop-basket-for-product.gd" id="16_v2fvd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r4pjh"]
 radius = 4.0
@@ -96,8 +98,8 @@ script = ExtResource("4_ocdey")
 
 [node name="active" type="Node" parent="ai" index="0"]
 
-[node name="idle" type="Node" parent="ai/active" index="0"]
-script = ExtResource("5_8ech2")
+[node name="enter" type="Node" parent="ai/active" index="0"]
+script = ExtResource("6_lo1fs")
 customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")
@@ -148,6 +150,18 @@ agentNodePath = NodePath("../../../agent")
 
 [node name="put-into-basket" type="Node" parent="ai/states" index="7"]
 script = ExtResource("14_dnstu")
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="idle" type="Node" parent="ai/states" index="8"]
+script = ExtResource("5_8ech2")
+customerNodePath = NodePath("../../..")
+animationNodePath = NodePath("../../../animation")
+agentNodePath = NodePath("../../../agent")
+
+[node name="drop-basket-for-product" type="Node" parent="ai/states" index="9"]
+script = ExtResource("16_v2fvd")
 customerNodePath = NodePath("../../..")
 animationNodePath = NodePath("../../../animation")
 agentNodePath = NodePath("../../../agent")

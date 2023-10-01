@@ -1,5 +1,5 @@
 extends AIState
-class_name AIStateWander
+class_name AIStateEnter
 
 
 var exited := false
@@ -7,8 +7,8 @@ var exited := false
 
 func enter():
     
-    # choose a random new location near the current one
-    customer.targetPosition = customer.global_position + Vector2.from_angle(randf_range(0, PI*2)) * randf_range(16, 32)
+    # choose a random new location near the entrance
+    customer.targetPosition = customer.global_position + Vector2(randf_range(-32, 0), randf_range(-20, 20))
     agent.target_position = customer.targetPosition
     
     animation.play('walk')

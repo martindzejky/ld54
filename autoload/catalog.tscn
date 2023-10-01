@@ -9,28 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://oifxmjcimlra" path="res://objects/products/milkshake.tscn" id="8_bt8oy"]
 [ext_resource type="PackedScene" uid="uid://dsufu0xmur05a" path="res://objects/products/strawberry.tscn" id="10_h4bqv"]
 
-[node name="catalog" type="Node"]
+[node name="catalog" type="Node2D"]
+visible = false
+position = Vector2(-200, 0)
 
 [node name="apple" parent="." instance=ExtResource("2_sicip")]
-visible = false
 
 [node name="blue-box" parent="." instance=ExtResource("3_k1eba")]
-visible = false
 
 [node name="carrot" parent="." instance=ExtResource("4_af4wb")]
-visible = false
 
 [node name="cola" parent="." instance=ExtResource("5_0ofbn")]
-visible = false
 
 [node name="lemon" parent="." instance=ExtResource("6_7g0nw")]
-visible = false
 
 [node name="milk" parent="." instance=ExtResource("7_8fvfn")]
-visible = false
 
 [node name="milkshake" parent="." instance=ExtResource("8_bt8oy")]
-visible = false
 
 [node name="strawberry" parent="." instance=ExtResource("10_h4bqv")]
-visible = false
