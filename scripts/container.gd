@@ -55,6 +55,8 @@ func focusUI():
 
 func openUI():
     $"container-ui".visible = true
+    Sfx.play('ui-open')
 
 func closeUI():
     $"container-ui".visible = false
+    Sfx.play('ui-close')

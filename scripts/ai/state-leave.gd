@@ -19,6 +19,7 @@ func physicsUpdate(_delta):
         if customer.myBasket:
             customer.myBasket.customer = null
         
+        Sfx.play('entrance')
         customer.queue_free()
         return
     

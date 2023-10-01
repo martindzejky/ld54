@@ -46,6 +46,7 @@ func displayCallout(index: int, product: Product = null):
     
     $"ui-timer".stop()
     $ui.visible = true
+    Sfx.play('callout')
     
     $ui/margin/center/texture.texture.region = Rect2(index * 16, 0, 16, 16)
     

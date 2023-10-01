@@ -45,6 +45,7 @@ func physicsUpdate(_delta):
         get_node('/root').add_child(price)
         
         Shop.addSoldAmount(total)
+        Sfx.play('sell')
         
         emit_signal('transition', 'fetch-paid-products')
         return

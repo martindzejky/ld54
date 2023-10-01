@@ -23,5 +23,6 @@ func spawn():
     
     assert(level, 'Missing level node')
     
+    Sfx.play('entrance')
     level.add_child(customerObj)
     customerObj.global_position = global_position

@@ -3,6 +3,9 @@ class_name Door
 
 
 func toggle() -> void:
+    
+    Sfx.play('door')
+    
     if $shape.disabled:
         $shape.disabled = false
         $sprite.frame = 0
