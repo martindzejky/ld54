@@ -38,6 +38,7 @@ func update(_delta):
 func isNotScannedInRightSide(product: Node) -> bool:
     
     if not product.is_inside_tree(): return true
+    if not product.isScanned: return true
     
     var parent := product.get_parent()
     if not parent: return true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://rylb8pwby5wr"]
+[gd_scene load_steps=6 format=3 uid="uid://rylb8pwby5wr"]
 
 [ext_resource type="Script" path="res://scripts/product.gd" id="1_ha0yx"]
 [ext_resource type="Texture2D" uid="uid://bsu6egmnncvyc" path="res://sprites/products.png" id="2_e385l"]
 [ext_resource type="Texture2D" uid="uid://beintkdrr5amn" path="res://sprites/shadow.png" id="3_5a8yt"]
+[ext_resource type="Texture2D" uid="uid://v026wcg6bd2a" path="res://ui/callouts.png" id="4_hmhiw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xflst"]
 radius = 2.0
@@ -31,3 +32,11 @@ shape = SubResource("CapsuleShape2D_xflst")
 [node name="obstacle" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, -2)
 radius = 3.0
+
+[node name="scanned-check" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(5, -9)
+scale = Vector2(0.508802, 0.508802)
+texture = ExtResource("4_hmhiw")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)

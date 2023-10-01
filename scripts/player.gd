@@ -67,8 +67,20 @@ func interact():
             return
         
         if body is CashDeskComputer:
-            body.openUI()
-            body.focusUI()
+            
+            if isCarryingAnything():
+                
+                var item := dropItem()
+                if item is Product and item.customer:
+                    item.isScanned = true
+                    item.get_node('scanned-check').visible = true
+                    body.scanItem()
+                pickItem(item)
+                
+            else:
+                body.openUI()
+                body.focusUI()
+            
             return
         
         if body is ItemContainer:

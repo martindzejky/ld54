@@ -7,6 +7,7 @@ class_name Product
 
 # who wants to purchase this product
 var customer: Customer
+var isScanned := false
 
 
 func _on_picked_up():

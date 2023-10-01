@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1hbj7nlq2r4x"]
+[gd_scene load_steps=11 format=3 uid="uid://c1hbj7nlq2r4x"]
 
 [ext_resource type="Script" path="res://scripts/cash-desk-computer.gd" id="1_yafrr"]
+[ext_resource type="Texture2D" uid="uid://btpsa8lw06sqd" path="res://sprites/scan.png" id="2_nfovh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dl1n"]
 size = Vector2(14, 14)
@@ -157,6 +158,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "End day"
 script = SubResource("GDScript_3orng")
+
+[node name="scan" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -8)
+texture = ExtResource("2_nfovh")
 
 [connection signal="pressed" from="ui/panel/margin/vbox/actions/close-ui" to="." method="closeUI"]
 [connection signal="pressed" from="ui/panel/margin/vbox/actions/close-shop" to="ui/panel/margin/vbox/actions/close-shop" method="_on_pressed"]
