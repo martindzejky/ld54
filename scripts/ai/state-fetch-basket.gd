@@ -28,6 +28,11 @@ func physicsUpdate(_delta):
         print('Basket is no longer on the floor')
         emit_signal('transition', 'idle')
         return
+        
+    if not agent.is_target_reachable():
+        print('Basket is not reachable')
+        emit_signal('transition', 'idle')
+        return
     
     if agent.is_navigation_finished() or agent.distance_to_target() < 20:
         
