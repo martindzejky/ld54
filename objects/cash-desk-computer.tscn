@@ -164,6 +164,8 @@ visible = false
 position = Vector2(0, -8)
 texture = ExtResource("2_nfovh")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="ui/panel/margin/vbox/actions/close-ui" to="." method="closeUI"]
 [connection signal="pressed" from="ui/panel/margin/vbox/actions/close-shop" to="ui/panel/margin/vbox/actions/close-shop" method="_on_pressed"]
 [connection signal="pressed" from="ui/panel/margin/vbox/actions/close-shop" to="." method="focusUI"]

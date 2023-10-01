@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 Catalog="*res://autoload/catalog.tscn"
 Randomizer="*res://autoload/randomizer.gd"
 Shop="*res://autoload/shop.gd"
+Sfx="*res://autoload/sfx.gd"
 
 [display]
 
