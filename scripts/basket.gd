@@ -1,6 +1,5 @@
-extends StaticBody2D
-class_name Product
-
+extends ItemContainer
+class_name Basket
 
 func _on_picked_up():
     $shadow.visible = false

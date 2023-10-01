@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://clyojb0cp6b0g"]
 
-[ext_resource type="Script" path="res://scripts/container.gd" id="1_fxe1a"]
+[ext_resource type="Script" path="res://scripts/basket.gd" id="1_uix1j"]
 [ext_resource type="Texture2D" uid="uid://dxmqv1b4hm8c3" path="res://sprites/basket.png" id="2_4rnhj"]
 [ext_resource type="Texture2D" uid="uid://beintkdrr5amn" path="res://sprites/shadow.png" id="3_crylw"]
 [ext_resource type="PackedScene" uid="uid://luiumy05yr4e" path="res://ui/container-ui.tscn" id="4_3tnaq"]
@@ -11,8 +11,7 @@ size = Vector2(16, 8)
 [node name="basket" type="StaticBody2D" groups=["basket", "pickable"]]
 collision_layer = 32
 collision_mask = 0
-script = ExtResource("1_fxe1a")
-capacity = 4
+script = ExtResource("1_uix1j")
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
@@ -27,6 +26,9 @@ texture = ExtResource("3_crylw")
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_s1ob8")
+
+[node name="obstacle" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-8, 0, 8, 0, 8, -8, -8, -8)
 
 [node name="container" type="Marker2D" parent="."]
 position = Vector2(0, -5)

@@ -30,8 +30,8 @@ func storeItem(item: Node2D):
     else:
         item.position = Vector2(randf_range(-3, 3), randf_range(-1, 1))
     
-    var shadow := item.find_child('shadow')
-    if shadow: shadow.visible = false
+    if item.has_method('_on_stored'):
+        item.call('_on_stored')
 
 func retrieveItem(index = 0) -> Node2D:
     if index < 0: return null
@@ -43,8 +43,8 @@ func retrieveItem(index = 0) -> Node2D:
     var level := get_tree().get_first_node_in_group('level')
     if not level: return null
     
-    var shadow := item.find_child('shadow')
-    if shadow: shadow.visible = true
+    if item.has_method('_on_retrieved'):
+        item.call('_on_retrieved')
     
     item.reparent(level)
     return item

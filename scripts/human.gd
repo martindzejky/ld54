@@ -17,8 +17,8 @@ func pickItem(item: Node2D):
     item.position = Vector2.ZERO
     item.rotation = 0
     
-    var shadow := item.find_child('shadow')
-    if shadow: shadow.visible = false
+    if item.has_method('_on_picked_up'):
+        item.call('_on_picked_up')
     
 func dropItem() -> Node2D:
     if not isCarryingAnything(): return null
@@ -30,8 +30,8 @@ func dropItem() -> Node2D:
             carriedItem.reparent(level)
             carriedItem.global_position = global_position
             
-            var shadow := carriedItem.find_child('shadow')
-            if shadow: shadow.visible = true
+            if carriedItem.has_method('_on_dropped'):
+                carriedItem.call('_on_dropped')
             
             return carriedItem
     
