@@ -7,10 +7,11 @@ radius = 2.0
 height = 12.0
 
 [node name="lemon" instance=ExtResource("1_61djs")]
+price = 1.0
 
 [node name="sprite" parent="." index="0"]
 position = Vector2(0, -4)
 frame = 2
 
-[node name="shape" parent="." index="1"]
+[node name="shape" parent="." index="2"]
 shape = SubResource("CapsuleShape2D_84mfe")

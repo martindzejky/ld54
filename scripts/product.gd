@@ -2,6 +2,9 @@ extends StaticBody2D
 class_name Product
 
 
+@export var price: float = 0.0
+
+
 func _on_picked_up():
     $shadow.visible = false
     $shape.disabled = true

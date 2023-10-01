@@ -7,6 +7,7 @@ radius = 1.0
 height = 6.0
 
 [node name="milkshake" instance=ExtResource("1_mh1bj")]
+price = 9.0
 
 [node name="sprite" parent="." index="0"]
 frame = 4

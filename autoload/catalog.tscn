@@ -1,0 +1,36 @@
+[gd_scene load_steps=9 format=3 uid="uid://birbqt7qpvmoj"]
+
+[ext_resource type="PackedScene" uid="uid://cdhta8gh7tbtv" path="res://objects/products/apple.tscn" id="2_sicip"]
+[ext_resource type="PackedScene" uid="uid://cg0l7ixwx4xnc" path="res://objects/products/blue-box.tscn" id="3_k1eba"]
+[ext_resource type="PackedScene" uid="uid://dfoj30hakpqux" path="res://objects/products/carrot.tscn" id="4_af4wb"]
+[ext_resource type="PackedScene" uid="uid://1tqqmhm4tpe5" path="res://objects/products/cola.tscn" id="5_0ofbn"]
+[ext_resource type="PackedScene" uid="uid://b6ddrvyeqhuu4" path="res://objects/products/lemon.tscn" id="6_7g0nw"]
+[ext_resource type="PackedScene" uid="uid://ccu2vokcdvqjd" path="res://objects/products/milk.tscn" id="7_8fvfn"]
+[ext_resource type="PackedScene" uid="uid://oifxmjcimlra" path="res://objects/products/milkshake.tscn" id="8_bt8oy"]
+[ext_resource type="PackedScene" uid="uid://dsufu0xmur05a" path="res://objects/products/strawberry.tscn" id="10_h4bqv"]
+
+[node name="catalog" type="Node"]
+
+[node name="apple" parent="." instance=ExtResource("2_sicip")]
+visible = false
+
+[node name="blue-box" parent="." instance=ExtResource("3_k1eba")]
+visible = false
+
+[node name="carrot" parent="." instance=ExtResource("4_af4wb")]
+visible = false
+
+[node name="cola" parent="." instance=ExtResource("5_0ofbn")]
+visible = false
+
+[node name="lemon" parent="." instance=ExtResource("6_7g0nw")]
+visible = false
+
+[node name="milk" parent="." instance=ExtResource("7_8fvfn")]
+visible = false
+
+[node name="milkshake" parent="." instance=ExtResource("8_bt8oy")]
+visible = false
+
+[node name="strawberry" parent="." instance=ExtResource("10_h4bqv")]
+visible = false
