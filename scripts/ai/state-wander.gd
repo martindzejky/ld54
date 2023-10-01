@@ -9,9 +9,9 @@ func enter():
     
     # choose a random new location near the current one
     customer.targetPosition = customer.global_position + Vector2.from_angle(randf_range(0, PI*2)) * randf_range(16, 32)
-    customer.get_node('agent').target_position = customer.targetPosition
+    agent.target_position = customer.targetPosition
     
-    customer.get_node('animation').play('walk')
+    animation.play('walk')
     
     exited = false
     
@@ -26,11 +26,9 @@ func exit():
     exited = true
     
     customer.targetPosition = customer.global_position
-    customer.get_node('agent').target_position = customer.targetPosition
+    agent.target_position = customer.targetPosition
 
-func physicsUpdate(delta):
-    
-    var agent := customer.get_node('agent') as NavigationAgent2D
+func physicsUpdate(_delta):
     
     if agent.is_navigation_finished():
         emit_signal('transition', 'idle')

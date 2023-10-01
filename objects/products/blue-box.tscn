@@ -7,6 +7,7 @@ radius = 2.0
 height = 6.0
 
 [node name="blue-box" instance=ExtResource("1_8108y")]
+type = "blue-box"
 price = 6.0
 
 [node name="sprite" parent="." index="0"]

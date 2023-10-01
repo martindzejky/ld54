@@ -3,7 +3,11 @@ class_name AIState
 
 
 @export_node_path() var customerNodePath: NodePath
+@export_node_path() var animationNodePath: NodePath
+@export_node_path() var agentNodePath: NodePath
 var customer: Customer
+var animation: AnimationPlayer
+var agent: NavigationAgent2D
 
 signal transition(to: String)
 
@@ -11,6 +15,10 @@ signal transition(to: String)
 func _ready():
     customer = get_node(customerNodePath)
     assert(customer, 'Missing customer node!')
+    animation = get_node(animationNodePath)
+    assert(animation, 'Missing animation node!')
+    agent = get_node(agentNodePath)
+    assert(agent, 'Missing agent node!')
 
 
 # called when the state becomes active

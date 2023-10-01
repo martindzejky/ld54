@@ -1,13 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://b62ww8nn0ilvp"]
+[gd_scene load_steps=9 format=3 uid="uid://b62ww8nn0ilvp"]
 
 [ext_resource type="TileSet" uid="uid://b1emy3ccan5v" path="res://tiles/shop.tres" id="1_mmgkn"]
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="2_o5nxu"]
+[ext_resource type="PackedScene" uid="uid://b6ddrvyeqhuu4" path="res://objects/products/lemon.tscn" id="4_61ihm"]
+[ext_resource type="PackedScene" uid="uid://dsufu0xmur05a" path="res://objects/products/strawberry.tscn" id="4_q8b3n"]
+[ext_resource type="PackedScene" uid="uid://cdhta8gh7tbtv" path="res://objects/products/apple.tscn" id="5_vosqv"]
+[ext_resource type="PackedScene" uid="uid://dfoj30hakpqux" path="res://objects/products/carrot.tscn" id="6_0xkrn"]
 [ext_resource type="PackedScene" uid="uid://fjly6pr37lj4" path="res://objects/customer.tscn" id="8_5dtcu"]
+[ext_resource type="PackedScene" uid="uid://1tqqmhm4tpe5" path="res://objects/products/cola.tscn" id="8_mlmac"]
 
 [node name="main" type="Node2D"]
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(-22, -51)
+
+[node name="exit" type="Marker2D" parent="." groups=["exit"]]
+position = Vector2(30, 40)
 
 [node name="level" type="Node2D" parent="." groups=["level"]]
 y_sort_enabled = true
@@ -47,3 +55,24 @@ position = Vector2(-24, -53)
 
 [node name="customer" parent="level" instance=ExtResource("8_5dtcu")]
 position = Vector2(-13, -7)
+
+[node name="lemon" parent="level" instance=ExtResource("4_61ihm")]
+position = Vector2(-73, 40)
+
+[node name="strawberry" parent="level" instance=ExtResource("4_q8b3n")]
+position = Vector2(-72, 46)
+
+[node name="strawberry2" parent="level" instance=ExtResource("4_q8b3n")]
+position = Vector2(23, 48)
+
+[node name="carrot" parent="level" instance=ExtResource("6_0xkrn")]
+position = Vector2(12, 50)
+
+[node name="cola" parent="level" instance=ExtResource("8_mlmac")]
+position = Vector2(29, -12)
+
+[node name="apple" parent="level" instance=ExtResource("5_vosqv")]
+position = Vector2(17, -13)
+
+[node name="apple2" parent="level" instance=ExtResource("5_vosqv")]
+position = Vector2(5, -12)

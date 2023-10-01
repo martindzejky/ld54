@@ -2,6 +2,7 @@ extends StaticBody2D
 class_name Product
 
 
+@export var type: String
 @export var price: float = 0.0
 
 

@@ -32,6 +32,7 @@ func _on_state_transition(to: String):
     var newState := $states.get_node(to)
     if not newState:
         push_error('Cannot transition to state because it does not exist: ', to)
+        return
     
     newState.reparent($active)
     newState.enter()

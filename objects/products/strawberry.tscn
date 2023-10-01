@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://rylb8pwby5wr" path="res://objects/products/product.tscn" id="1_dwci4"]
 
 [node name="strawberry" instance=ExtResource("1_dwci4")]
+type = "strawberry"
 price = 4.0
 
 [node name="shape" parent="." index="2"]

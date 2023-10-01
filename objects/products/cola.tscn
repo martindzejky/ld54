@@ -6,6 +6,7 @@
 radius = 2.0
 
 [node name="cola" instance=ExtResource("1_y2mmm")]
+type = "cola"
 price = 5.0
 
 [node name="sprite" parent="." index="0"]

@@ -6,6 +6,7 @@
 radius = 2.0
 
 [node name="carrot" instance=ExtResource("1_n7bqq")]
+type = "carrot"
 price = 1.0
 
 [node name="sprite" parent="." index="0"]
