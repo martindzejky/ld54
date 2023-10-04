@@ -124,6 +124,8 @@ texture = ExtResource("4_drge0")
 [node name="hands" type="Marker2D" parent="." groups=["hands"]]
 position = Vector2(0, -16)
 
+[node name="facing" type="Marker2D" parent="." groups=["facing"]]
+
 [node name="animation" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 libraries = {

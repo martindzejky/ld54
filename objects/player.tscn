@@ -13,7 +13,7 @@ shader = ExtResource("3_ac4g0")
 shader_parameter/modulate = Color(0.152941, 0.537255, 0.803922, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_btbt1"]
-radius = 4.0
+radius = 8.0
 
 [node name="player" groups=["player"] instance=ExtResource("1_tyntx")]
 collision_layer = 65
@@ -30,10 +30,9 @@ material = SubResource("ShaderMaterial_5wmre")
 position = Vector2(0, -3)
 radius = 3.0
 
-[node name="interaction-area" type="Area2D" parent="." index="5"]
-position = Vector2(8, -8)
+[node name="interaction-area" type="Area2D" parent="facing" index="0"]
 collision_layer = 0
 collision_mask = 62
 
-[node name="shape" type="CollisionShape2D" parent="interaction-area" index="0"]
+[node name="shape" type="CollisionShape2D" parent="facing/interaction-area" index="0"]
 shape = SubResource("CircleShape2D_btbt1")
