@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6w6m8xf6yaug"]
+
+[ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="1_3l18y"]
+[ext_resource type="PackedScene" uid="uid://dsufu0xmur05a" path="res://objects/products/strawberry.tscn" id="2_2vxka"]
+
+[node name="test" type="Node2D"]
+
+[node name="level" type="Node2D" parent="." groups=["level"]]
+y_sort_enabled = true
+
+[node name="player" parent="level" instance=ExtResource("1_3l18y")]
+position = Vector2(157, 148)
+
+[node name="strawberry" parent="level" instance=ExtResource("2_2vxka")]
+position = Vector2(146, 110)
