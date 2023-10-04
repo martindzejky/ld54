@@ -24,7 +24,6 @@ layout_mode = 2
 
 [node name="label" type="Label" parent="margin/center"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 52
 text = "Day"
 
 [node name="timer" type="Timer" parent="."]
