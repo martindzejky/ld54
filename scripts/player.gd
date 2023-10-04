@@ -36,13 +36,9 @@ func _process(delta):
 
 func sortingFunction(a, b):
 
-    # always prefer baskets
-    if b is Basket: return false
-    if a is Basket: return true
-
-    # prefer interacting with containers first
-    if b is ItemContainer: return false
-    if a is ItemContainer: return true
+    # always prefer baskets over containers
+    if b is Basket and a is ItemContainer: return false
+    if a is Basket and b is ItemContainer: return true
 
     # sort by distance
     return global_position.distance_squared_to(a.global_position) < global_position.distance_squared_to(b.global_position)
