@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6w6m8xf6yaug"]
+[gd_scene load_steps=5 format=3 uid="uid://b6w6m8xf6yaug"]
 
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="1_3l18y"]
 [ext_resource type="TileSet" uid="uid://b1emy3ccan5v" path="res://tiles/shop.tres" id="1_vpue1"]
 [ext_resource type="PackedScene" uid="uid://dsufu0xmur05a" path="res://objects/products/strawberry.tscn" id="2_2vxka"]
+[ext_resource type="PackedScene" uid="uid://clyojb0cp6b0g" path="res://objects/basket.tscn" id="4_kytb5"]
 
 [node name="test" type="Node2D"]
 
@@ -14,6 +15,9 @@ position = Vector2(157, 148)
 
 [node name="strawberry" parent="level" instance=ExtResource("2_2vxka")]
 position = Vector2(146, 110)
+
+[node name="basket" parent="level" instance=ExtResource("4_kytb5")]
+position = Vector2(220, 127)
 
 [node name="tiles" type="TileMap" parent="level"]
 y_sort_enabled = true

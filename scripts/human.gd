@@ -13,6 +13,7 @@ func _process(_delta):
 
     var facingDirection = previousPosition.direction_to(position)
     $facing.position = facingDirection * 12.0
+    $"facing-ray".target_position = $facing.position
 
     previousPosition = position
 
@@ -42,7 +43,12 @@ func dropItem() -> Node2D:
         var level := get_tree().get_first_node_in_group('level')
         if level:
             carriedItem.reparent(level)
-            carriedItem.global_position = $facing.global_position
+
+            if $"facing-ray".is_colliding():
+                carriedItem.global_position = $"facing-ray".get_collision_point() + $facing.global_position.direction_to(global_position) * 4
+            else:
+                carriedItem.global_position = $facing.global_position
+
 
             if carriedItem.has_method('_on_dropped'):
                 carriedItem.call('_on_dropped')
