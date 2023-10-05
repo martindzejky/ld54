@@ -8,9 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1ob8"]
 size = Vector2(16, 8)
 
-[node name="basket" type="StaticBody2D" groups=["basket", "pickable"]]
+[node name="basket" type="CharacterBody2D" groups=["basket", "pickable"]]
 collision_layer = 32
-collision_mask = 0
+collision_mask = 63
+motion_mode = 1
 script = ExtResource("1_uix1j")
 capacity = 4
 
@@ -30,11 +31,11 @@ shape = SubResource("RectangleShape2D_s1ob8")
 
 [node name="obstacle" type="NavigationObstacle2D" parent="."]
 position = Vector2(-3, -4)
-radius = 6.0
+radius = 4.0
 
 [node name="obstacle2" type="NavigationObstacle2D" parent="."]
 position = Vector2(3, -4)
-radius = 6.0
+radius = 4.0
 
 [node name="container" type="Marker2D" parent="."]
 position = Vector2(0, -5)
@@ -51,7 +52,5 @@ containerNode = NodePath("../container")
 [connection signal="child_entered_tree" from="container" to="container-ui" method="_on_container_child_entered_tree"]
 [connection signal="child_exiting_tree" from="container" to="container-ui" method="_on_container_child_exiting_tree"]
 [connection signal="child_order_changed" from="container" to="container-ui" method="_on_container_child_order_changed"]
-[connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-close" to="." method="closeUI"]
-[connection signal="pressed" from="container-ui/panel/margin/vbox/actions/button-pick" to="." method="closeUI"]
 
 [editable path="container-ui"]

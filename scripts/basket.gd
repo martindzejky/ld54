@@ -11,13 +11,13 @@ func _on_picked_up():
     $shape.disabled = true
     $obstacle.avoidance_enabled = false
     $obstacle2.avoidance_enabled = false
-    
+
 func _on_stored():
     $shadow.visible = false
     #$shape.disabled = true # has to be enabled for cash desk interaction
     $obstacle.avoidance_enabled = false
     $obstacle2.avoidance_enabled = false
-    
+
 
 func _on_dropped():
     $shadow.visible = true

@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 class_name Product
 
 
@@ -14,12 +14,12 @@ func _on_picked_up():
     $shadow.visible = false
     $shape.disabled = true
     $obstacle.avoidance_enabled = false
-    
+
 func _on_stored():
     $shadow.visible = false
     $shape.disabled = true
     $obstacle.avoidance_enabled = false
-    
+
 
 func _on_dropped():
     $shadow.visible = true

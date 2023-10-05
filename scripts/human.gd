@@ -12,7 +12,7 @@ func _process(_delta):
     if previousPosition.distance_squared_to(position) < .1: return
 
     var facingDirection = previousPosition.direction_to(position)
-    $facing.position = facingDirection * 12.0
+    $facing.position = facingDirection * 8.0
     $"facing-ray".target_position = $facing.position
 
     previousPosition = position
@@ -56,3 +56,22 @@ func dropItem() -> Node2D:
             return carriedItem
 
     return null
+
+
+func walkAndPush(delta: float) -> void:
+
+    # try to move in direction of velocity, push objects away,
+    # and slide on walls up to 5 times
+
+    for i in range(5):
+
+        var hit := move_and_collide(velocity * delta)
+        if not hit: return
+
+        var other := hit.get_collider()
+        velocity = velocity.slide(hit.get_normal())
+
+        if other is CharacterBody2D:
+            other.move_and_collide(hit.get_remainder().length() * -hit.get_normal() * 0.4)
+
+

@@ -3,7 +3,7 @@ class_name Player
 
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 
 
     # if any GUI is focused, ignore move inputs
@@ -21,7 +21,7 @@ func _physics_process(_delta):
         $animation.play('idle')
 
     velocity = moveInput * walkSpeed
-    move_and_slide()
+    walkAndPush(delta)
 
 func _process(delta):
 

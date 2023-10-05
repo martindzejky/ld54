@@ -41,6 +41,10 @@ func _ready():
         assert(product is Product, 'The catalog contains a node which is not a Product!')
         wantsList.append(product)
 
+func _process(delta):
+    super(delta)
+    walkAndPush(delta)
+
 
 func displayCallout(index: int, product: Product = null):
 
@@ -72,4 +76,3 @@ func hideCallout():
 
 func _on_agent_velocity_computed(safeVelocity):
     velocity = safeVelocity
-    move_and_slide()
