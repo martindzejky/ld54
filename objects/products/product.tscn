@@ -32,6 +32,7 @@ shape = SubResource("CapsuleShape2D_xflst")
 
 [node name="obstacle" type="NavigationObstacle2D" parent="."]
 position = Vector2(0, -2)
+avoidance_enabled = false
 radius = 2.0
 
 [node name="scanned-check" type="Sprite2D" parent="."]

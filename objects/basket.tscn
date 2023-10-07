@@ -30,12 +30,9 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_s1ob8")
 
 [node name="obstacle" type="NavigationObstacle2D" parent="."]
-position = Vector2(-3, -4)
-radius = 4.0
-
-[node name="obstacle2" type="NavigationObstacle2D" parent="."]
-position = Vector2(3, -4)
-radius = 4.0
+position = Vector2(0, -4)
+avoidance_enabled = false
+radius = 8.0
 
 [node name="container" type="Marker2D" parent="."]
 position = Vector2(0, -5)
