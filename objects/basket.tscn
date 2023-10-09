@@ -29,12 +29,8 @@ texture = ExtResource("3_crylw")
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_s1ob8")
 
-[node name="obstacle" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(0, -0.571429)
-scale = Vector2(1, 0.857143)
-color = Color(1, 1, 1, 0.2)
-polygon = PackedVector2Array(-10, 3, 10, 3, 12, -4, 10, -11, -10, -11, -12, -4)
+[node name="obstacle" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-10, -1, -8, -11, 10, -7, 7, 3)
 
 [node name="container" type="Marker2D" parent="."]
 position = Vector2(0, -5)

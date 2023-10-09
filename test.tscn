@@ -1,17 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6w6m8xf6yaug"]
+[gd_scene load_steps=6 format=3 uid="uid://b6w6m8xf6yaug"]
 
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="1_3l18y"]
-[ext_resource type="Script" path="res://scripts/shop-navigation.gd" id="1_7kki7"]
 [ext_resource type="TileSet" uid="uid://c3fc7ffs3gf1g" path="res://tiles/shop2.tres" id="1_8ibu1"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="2_5dppf"]
 [ext_resource type="PackedScene" uid="uid://fjly6pr37lj4" path="res://objects/customer.tscn" id="4_w4n4b"]
 [ext_resource type="PackedScene" uid="uid://clyojb0cp6b0g" path="res://objects/basket.tscn" id="6_rkhcc"]
 
 [node name="test" type="Node2D"]
-
-[node name="navigation" type="Node2D" parent="." groups=["navigation"]]
-script = ExtResource("1_7kki7")
-tileMapPath = NodePath("../level/tiles")
 
 [node name="exit" type="Marker2D" parent="." groups=["exit", "spawner"]]
 position = Vector2(793, 359)
@@ -25,7 +20,6 @@ y_sort_enabled = true
 [node name="tiles" type="TileMap" parent="level"]
 y_sort_enabled = true
 tile_set = ExtResource("1_8ibu1")
-navigation_visibility_mode = 2
 format = 2
 layer_0/name = "walls"
 layer_0/y_sort_enabled = true
