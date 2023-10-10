@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccu2vokcdvqjd"]
+[gd_scene load_steps=2 format=3 uid="uid://ccu2vokcdvqjd"]
 
 [ext_resource type="PackedScene" uid="uid://rylb8pwby5wr" path="res://objects/products/product.tscn" id="1_b1a4c"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a0w8m"]
-radius = 2.0
-height = 6.0
 
 [node name="milk" instance=ExtResource("1_b1a4c")]
 type = "milk"
@@ -16,6 +12,3 @@ frame = 6
 
 [node name="shadow" parent="." index="1"]
 scale = Vector2(0.585, 0.585)
-
-[node name="shape" parent="." index="2"]
-shape = SubResource("CapsuleShape2D_a0w8m")

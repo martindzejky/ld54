@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfoj30hakpqux"]
+[gd_scene load_steps=2 format=3 uid="uid://dfoj30hakpqux"]
 
 [ext_resource type="PackedScene" uid="uid://rylb8pwby5wr" path="res://objects/products/product.tscn" id="1_n7bqq"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_57ba0"]
-radius = 2.0
 
 [node name="carrot" instance=ExtResource("1_n7bqq")]
 type = "carrot"
@@ -14,6 +11,3 @@ frame = 5
 
 [node name="shadow" parent="." index="1"]
 scale = Vector2(0.45, 0.45)
-
-[node name="shape" parent="." index="2"]
-shape = SubResource("CircleShape2D_57ba0")

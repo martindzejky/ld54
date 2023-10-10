@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://1tqqmhm4tpe5"]
+[gd_scene load_steps=2 format=3 uid="uid://1tqqmhm4tpe5"]
 
 [ext_resource type="PackedScene" uid="uid://rylb8pwby5wr" path="res://objects/products/product.tscn" id="1_y2mmm"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_hwtq7"]
-radius = 2.0
 
 [node name="cola" instance=ExtResource("1_y2mmm")]
 type = "cola"
@@ -15,6 +12,3 @@ frame = 7
 
 [node name="shadow" parent="." index="1"]
 scale = Vector2(0.503588, 0.503588)
-
-[node name="shape" parent="." index="2"]
-shape = SubResource("CircleShape2D_hwtq7")

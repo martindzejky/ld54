@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg0l7ixwx4xnc"]
+[gd_scene load_steps=2 format=3 uid="uid://cg0l7ixwx4xnc"]
 
 [ext_resource type="PackedScene" uid="uid://rylb8pwby5wr" path="res://objects/products/product.tscn" id="1_8108y"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qev5n"]
-radius = 2.0
-height = 6.0
 
 [node name="blue-box" instance=ExtResource("1_8108y")]
 type = "blue-box"
@@ -13,6 +9,3 @@ price = 6.0
 [node name="sprite" parent="." index="0"]
 position = Vector2(0, -4)
 frame = 3
-
-[node name="shape" parent="." index="2"]
-shape = SubResource("CapsuleShape2D_qev5n")

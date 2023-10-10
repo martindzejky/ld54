@@ -6,9 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b8mfj3anpjf63" path="res://sprites/human-arms.png" id="2_3ahy1"]
 [ext_resource type="Texture2D" uid="uid://beintkdrr5amn" path="res://sprites/shadow.png" id="4_drge0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fubmv"]
-radius = 2.0
-height = 8.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_trsn1"]
+radius = 4.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jyphq"]
 resource_local_to_scene = true
@@ -100,9 +99,8 @@ motion_mode = 1
 script = ExtResource("1_qohe2")
 
 [node name="shape" type="CollisionShape2D" parent="."]
-position = Vector2(-2.27374e-13, -3)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_fubmv")
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_trsn1")
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_jyphq")

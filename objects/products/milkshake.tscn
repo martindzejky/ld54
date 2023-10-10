@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://oifxmjcimlra"]
+[gd_scene load_steps=2 format=3 uid="uid://oifxmjcimlra"]
 
 [ext_resource type="PackedScene" uid="uid://rylb8pwby5wr" path="res://objects/products/product.tscn" id="1_mh1bj"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7fxn"]
-radius = 1.0
-height = 6.0
 
 [node name="milkshake" instance=ExtResource("1_mh1bj")]
 type = "milkshake"
@@ -12,6 +8,3 @@ price = 9.0
 
 [node name="sprite" parent="." index="0"]
 frame = 4
-
-[node name="shape" parent="." index="2"]
-shape = SubResource("CapsuleShape2D_m7fxn")

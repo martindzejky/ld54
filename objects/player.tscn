@@ -27,8 +27,8 @@ material = SubResource("ShaderMaterial_3bax0")
 material = SubResource("ShaderMaterial_5wmre")
 
 [node name="obstacle" type="NavigationObstacle2D" parent="." index="4"]
-position = Vector2(0, -3)
-radius = 3.0
+position = Vector2(0, -1)
+radius = 5.0
 
 [node name="interaction-area" type="Area2D" parent="facing" index="0"]
 collision_layer = 0
