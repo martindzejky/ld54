@@ -71,7 +71,7 @@ func interact():
                     item.isScanned = true
                     item.get_node('scanned-check').visible = true
                     body.scanItem()
-                pickItem(item)
+                    pickItem(item)
 
             else:
                 body.openUI()
@@ -89,8 +89,7 @@ func interact():
 
                         # make sure that if carrying a basket, it cannot be inserted
                         # (unless this is a cash desk)
-                        if item is ItemContainer and not container.is_in_group('cash-desk'):
-                            pickItem(item)
+                        if item is ItemContainer and not container.is_in_group('cash-desk-left'):
                             return
                         else:
                             container.storeItem(item)
