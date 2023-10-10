@@ -25,10 +25,18 @@ func _physics_process(delta):
 
 func _process(delta):
 
-    super(delta)
+    # super(delta) # disabled because for the player, I want to manually control the facing based on inputs
 
     # if any GUI is focused, ignore move inputs
     if get_viewport().gui_get_focus_owner(): return
+
+    var moveX := Input.get_axis("move_left", "move_right")
+    var moveY := Input.get_axis("move_up", "move_down")
+    var moveInput := Vector2(moveX, moveY)
+
+    if moveInput.length_squared() > 0.1:
+        $facing.position = moveInput.normalized() * 8.0
+        $"facing-ray".target_position = $facing.position
 
     if Input.is_action_just_pressed("interact"):
         interact()
