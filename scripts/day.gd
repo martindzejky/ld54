@@ -16,4 +16,4 @@ func _ready():
 
 
 func _on_timer_timeout():
-    get_tree().change_scene_to_file('res://main.tscn')
+    get_tree().change_scene_to_file('res://shop.tscn')

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dywur4844t0mf" path="res://objects/player.tscn" id="2_o5nxu"]
 [ext_resource type="PackedScene" uid="uid://fjly6pr37lj4" path="res://objects/customer.tscn" id="8_5dtcu"]
 
-[node name="main" type="Node2D"]
+[node name="shop" type="Node2D"]
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(-22, -51)
